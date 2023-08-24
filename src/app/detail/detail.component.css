@@ -1,5 +1,5 @@
 .detail_container_global {
-    margin-top: 50px;
+    margin: 50px;
 }
 
 .detail_image {
@@ -7,6 +7,7 @@
     height: 300px;
     flex-shrink: 0;
     border: 1px dotted #22222252;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .detail_image img {
@@ -19,13 +20,75 @@
     justify-content: space-evenly;
     align-items: center;
 }
-
+/* 
 .detail_nom {
     display: flex;
-    /* justify-content: space-evenly; */
     align-items: center;
     gap: 20px;
     margin: 10px 0;
+} */
+
+.detail_nom {
+    display: flex;
+    justify-content: space-between;
+    /* width: 00px; */
+    align-items: center;
+    /* gap: 20px; */
+    margin: 10px 0;
+    border-bottom: 1px solid #c4bcbc;
+    padding: 10px;
+}
+
+.detail_noms {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    align-items: center;
+    gap: 20px;
+    margin: 10px 0;
+    border-bottom: 1px solid #c4bcbc;
+    padding: 10px;
+}
+
+.detail_nom p {
+    padding: 0 20px;
+}
+
+.d1 p {
+    font-size: 20px;
+}
+
+.d2 p {
+    font-size: 20px ;
+    font-weight: 550;
+    color: #008000;
+}
+
+.d3 p {
+    font-size: 20px ;
+    font-weight: 550;
+}
+
+.d3 {
+    display: flex; 
+    align-items: center;
+}
+
+.dd2 .deux_point {
+    position: relative;
+    right: 5px;
+}
+
+.dd3 .deux_point {
+    margin-right: 160px;
+}
+
+.detail_nom h2{
+    font-weight: 400;
+}
+
+.detail_nom h3{
+    font-weight: 500;
 }
 
 
@@ -40,15 +103,57 @@
     display: flex;
     justify-content: center;
     gap: 30px;
+    margin-top: 30px;
 }
 
 .detail_sup_mod .detail_sup{
     padding: 7px 30px;
     background-color: #FF8A8A;
+    border: none;
+    border-radius: 7px;
+    color: #000;
+    cursor: pointer;
+}
+.detail_sup_mod .detail_sup i{
+    color: red;
+    padding-right: 3px;
+    font-weight: 500;
+    cursor: pointer;
 }
 
+.detail_sup_mod .detail_mod i{
+    padding-right: 3px;
+    font-weight: 500;
+    cursor: pointer;
+}
 
 .detail_sup_mod .detail_mod{
-    padding: 7px 30px;    
+    padding: 8px 30px;    
     background-color: #008000;
+    border: none;
+    border-radius: 7px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.bare_vert {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bare_vert .bare_ligne {
+    width: 50%;
+    background-color: #008000c7;
+    height: 0.5px;
+}
+
+/* ============================= detail_info_conatiner ================== */
+
+.detail_info_container_global {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
 }

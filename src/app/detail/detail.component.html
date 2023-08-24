@@ -7,7 +7,7 @@
 
         <!-- Image de mon detaille  -->
         <div class="detail_image">
-            <img src="" class="catre_image" alt="image de detaille">
+            <img src="../../assets/image/avatar1.png" class="catre_image" alt="image de detaille">
         </div>
 
         <!-- ================================ RIGHT ================================== -->
@@ -16,15 +16,24 @@
         <div class="detail_information_detail">
             <!-- Pour nom  -->
             <div class="detail_nom">
-                <h3>Nom</h3>
-                <p> : </p>
-                <h2>TAKADOL</h2>
+                <div class="d1">
+                    <h3 class="detail_name">Nom</h3>
+                </div>
+                <div class="d3 dd2">
+                    <p class="deux_point"> : </p>
+                    <h2 class="detail_prise">TAKADOL</h2>
+                </div>
             </div>
+
             <!-- Pour date d'ajoute -->
             <div class="detail_nom">
-                <h3>Date d’ajout</h3>
-                <p> : </p>
-                <h2>24-08-2023</h2>
+                <div class="d1">
+                    <h3 class="detail_name">Date d’ajout</h3>
+                </div>
+                <div class="d3 dd2">
+                    <p class="deux_point"> : </p>
+                    <h2 class="detail_prise">24-08-2023</h2>
+                </div>
             </div>
 
             <!-- pour description de detail  -->
@@ -39,11 +48,74 @@
             <!-- les boutons de suppression et modification de details  -->
 
             <div class="detail_sup_mod">
-                <button type="submit" class="detail_sup">  Supprimer</button>
-                <button type="submit" class="detail_mod">  Modifier</button>
+                <button type="submit" class="detail_sup" (click)="confirmBox()"> 
+                    <i class="ri-delete-bin-line"></i> 
+                    Supprimer
+                </button>
+
+                <button type="submit" class="detail_mod"> 
+                    <i class="ri-edit-box-line"></i> 
+                    Modifier
+                </button>
             </div>
 
         </div>
+    </div>
+
+    <!-- ========================= LE PETIT BARE ======================= -->
+
+    <div class="bare_vert">
+        <div class="bare_ligne"></div>
+    </div>
+
+    <!-- ====================== Container des informationd de details ===================================== -->
+
+    <div class="detail_info_container_global">
+
+        <div class="detail_info_container">
+            <!-- Pour dosage du medicament -->
+            <div class="detail_noms_container">
+                <div class="detail_noms">
+                    <div class="d1">
+                        <p class="detail_name">Dosage du médicament</p>
+                    </div>
+                    <div class="d2">
+                        <p class="deux_point"> : </p>
+                    </div>
+                    <div class="d3">
+                        <p class="detail_prise">(2) compriméés</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pour Fréquence du médicament  -->
+            <div class="detail_noms_container">
+                <div class="detail_noms">
+                    <div class="d1">
+                        <p class="detail_name">Fréquence du médicament</p>
+                    </div>
+                    <div class="d3 dd3">
+                        <p class="deux_point"> : </p>
+                        <p class="detail_prise">1 / jour</p>
+                    </div>
+                </div>
+            </div>  
+            
+            <!-- Pour Prochaine Prise  -->
+            <div class="detail_noms_container">
+                <div class="detail_noms">
+                    <div class="d1">
+                        <p class="detail_name">Prochaine Prise</p>
+                    </div>
+                    <div class="d3 dd3">
+                        <p class="deux_point"> : </p>
+                        <p class="detail_prise">17 h 00</p>
+                    </div>
+                </div>
+            </div> 
+
+        </div>
+
     </div>
 
 </div>
