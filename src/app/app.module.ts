@@ -9,6 +9,8 @@ import { AjouterRappelComponent } from './ajouter-rappel/ajouter-rappel.componen
 import { DetailComponent } from './detail/detail.component';
 import { ListeMedicamentsComponent } from './liste-medicaments/liste-medicaments.component';
 import {NgOptimizedImage} from "@angular/common";
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import {NgOptimizedImage} from "@angular/common";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

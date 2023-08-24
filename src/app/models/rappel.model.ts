@@ -1,4 +1,4 @@
-import {Medicament} from './medicament.model';
+import Medicament from './medicament.model';
 export class Rappel {
   id: number;
   date_debut: Date;

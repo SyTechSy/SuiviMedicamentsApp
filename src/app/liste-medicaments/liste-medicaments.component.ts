@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { MedicamentServiceService } from '../medicament-service.service';
+
+// import {AjouteMedicamentComponent} from '../ajoute-medicament/ajoute-medicament.component';
 
 @Component({
   selector: 'app-liste-medicaments',
@@ -6,5 +9,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./liste-medicaments.component.css']
 })
 export class ListeMedicamentsComponent {
+
+  // donne : AjouteMedicamentComponent = new AjouteMedicamentComponent;
+  // data = this.donne.medicaments;
+
+constructor(public medicamentServiceService: MedicamentServiceService) {
+  console.log(this.medicamentServiceService.getMedicament());
+
+}
 
 }

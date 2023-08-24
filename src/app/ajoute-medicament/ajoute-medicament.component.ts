@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import Medicament from '../models/medicament.model';
+
+import { MedicamentServiceService } from '../medicament-service.service';
 
 @Component({
   selector: 'app-ajoute-medicament',
@@ -39,8 +42,28 @@ export class AjouteMedicamentComponent {
       }
     }
   }
+
+  selectedFile : File | undefined;
+
+  photo(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.selectedFile = input.files?.[0]
+  }
   
+  nouveauMedicament : Medicament = new Medicament(0, '', '', 0, '', '');
+  // injection de dependence
+  constructor(public medicamentServiceService: MedicamentServiceService) {}
+
+  submitForm() {
+    console.log('Nouveau medicament :', this.nouveauMedicament);
+    // this.medicaments.push(this.nouveauMedicament);
+    this.medicamentServiceService.addMedicament(this.nouveauMedicament);
+    this.nouveauMedicament = new Medicament(0, '', '', 0, '', '')
+  }
+
+
   
+
 
   
 }
