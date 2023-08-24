@@ -7,9 +7,13 @@ import { AjouteMedicamentComponent } from './ajoute-medicament/ajoute-medicament
 import { ModifierMedicamentComponent } from './modifier-medicament/modifier-medicament.component';
 import { AjouterRappelComponent } from './ajouter-rappel/ajouter-rappel.component';
 import { DetailComponent } from './detail/detail.component';
+import { ListeMedicamentsComponent } from './liste-medicaments/liste-medicaments.component';
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
+    AppComponent,
+    ListeMedicamentsComponent,
     AppComponent,
     AjouteMedicamentComponent,
     ModifierMedicamentComponent,
@@ -18,7 +22,8 @@ import { DetailComponent } from './detail/detail.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgOptimizedImage
   ],
   providers: [],
   bootstrap: [AppComponent]

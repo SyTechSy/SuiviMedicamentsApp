@@ -4,12 +4,21 @@ import { AjouteMedicamentComponent } from './ajoute-medicament/ajoute-medicament
 import { ModifierMedicamentComponent } from './modifier-medicament/modifier-medicament.component';
 import { AjouterRappelComponent } from './ajouter-rappel/ajouter-rappel.component';
 import { DetailComponent } from './detail/detail.component';
+import {ListeMedicamentsComponent} from "./liste-medicaments/liste-medicaments.component";
 
 
 const routes: Routes = [
   {
-   path : '' ,
-   component : AjouteMedicamentComponent
+    path : '' ,
+    component : ListeMedicamentsComponent
+  },
+  {
+    path : 'accueil' ,
+    component : ListeMedicamentsComponent
+  },
+  {
+    path : 'ajouter' ,
+    component : AjouteMedicamentComponent
   },
   {
     path : 'modifier' ,
