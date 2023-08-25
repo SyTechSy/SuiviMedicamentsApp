@@ -1,21 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MedicamentServiceService } from '../medicament-service.service';
-
-// import {AjouteMedicamentComponent} from '../ajoute-medicament/ajoute-medicament.component';
 
 @Component({
   selector: 'app-liste-medicaments',
   templateUrl: './liste-medicaments.component.html',
   styleUrls: ['./liste-medicaments.component.css']
 })
-export class ListeMedicamentsComponent {
+export class ListeMedicamentsComponent implements OnInit {
 
-  // donne : AjouteMedicamentComponent = new AjouteMedicamentComponent;
-  // data = this.donne.medicaments;
+  medicaments: any[] = []; // Utilisez un tableau pour stocker plusieurs médicaments
 
-constructor(public medicamentServiceService: MedicamentServiceService) {
-  console.log(this.medicamentServiceService.getMedicament());
+  constructor(private medicamentServiceService: MedicamentServiceService) {}
 
-}
-
+  ngOnInit() {
+    // Récupérez les données du service lors de l'initialisation du composant
+    this.medicaments = this.medicamentServiceService.getMedicamentData();
+  }
 }

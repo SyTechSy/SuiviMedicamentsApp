@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
-import Medicament from './models/medicament.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MedicamentServiceService {
 
-  public medicaments: Medicament[] = [];
+  private medicaments: any[] = [];
 
-  addMedicament(medicament: Medicament) {
-    this.medicaments.push(medicament);
+  setMedicamentData(data: any) {
+    this.medicaments.push(data);
   }
 
-  getMedicament() {
+  getMedicamentData() {
     return this.medicaments;
   }
 }

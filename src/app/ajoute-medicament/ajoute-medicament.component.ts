@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import Medicament from '../models/medicament.model';
-
+import { Component, OnInit } from '@angular/core';
+import { AddMedicament } from './addMedicament';
+import { NgForm } from '@angular/forms';
 import { MedicamentServiceService } from '../medicament-service.service';
 
 @Component({
@@ -8,13 +8,18 @@ import { MedicamentServiceService } from '../medicament-service.service';
   templateUrl: './ajoute-medicament.component.html',
   styleUrls: ['./ajoute-medicament.component.css']
 })
-export class AjouteMedicamentComponent {
+export class AjouteMedicamentComponent implements OnInit{
 
+
+  // =========================== Pour les champs 1 ou comprimer +++++++++++++++++++++
+
+  
   selectedValues = '1';
 
   selectedValue = '1';
 
   selectedcomprime = 'Comprimé';
+  private selectedFile: File | undefined;
 
   onSelectChanges(event: any) {
     this.selectedValues = event.target.value;
@@ -43,27 +48,64 @@ export class AjouteMedicamentComponent {
     }
   }
 
-  selectedFile : File | undefined;
+  //selectedFile : File | undefined;
 
   photo(event: Event) {
     const input = event.target as HTMLInputElement;
     this.selectedFile = input.files?.[0]
   }
-  
-  nouveauMedicament : Medicament = new Medicament(0, '', '', 0, '', '');
-  // injection de dependence
-  constructor(public medicamentServiceService: MedicamentServiceService) {}
 
-  submitForm() {
-    console.log('Nouveau medicament :', this.nouveauMedicament);
-    // this.medicaments.push(this.nouveauMedicament);
-    this.medicamentServiceService.addMedicament(this.nouveauMedicament);
-    this.nouveauMedicament = new Medicament(0, '', '', 0, '', '')
+
+  // =========================== CRUD POUR AJOUTER UN MEDI +++++++++++++++++++++
+
+   public addMedicament : AddMedicament = new AddMedicament;
+
+   ngOnInit(): void {
+    //throw new Error('Method not implemented.');
+  }
+
+  public saveData(ajouteForm: NgForm) {
+    console.log(ajouteForm.form);
+    // stringify pour convertir et transferer le fichier
+    console.log('valeurs: ', JSON.stringify(ajouteForm.value))
+    console.log("hello");
   }
 
 
-  
+  // ================= Appel apour stocker les donneee du formulaire ============
+
+  medicamentData: any = {} // Vous devez définir votre modèle de données ici
+
+  constructor(private medicamentServiceService: MedicamentServiceService) {}
+
+  onSubmit() {
+    // Soumettez le formulaire, effectuez les validations nécessaires
+    // Si les données sont valides, stockez-les dans le service
+    if (this.validateMedicamentData()) {
+      this.medicamentServiceService.setMedicamentData(this.medicamentData);
+      this.resetMedicamentData();
+      console.log('Données du formulaire stockées avec succès dans le service.');
+    }
+  }
+    
+  private validateMedicamentData(): boolean {
+    // Implémentez ici votre logique de validation
+    // Retournez true si les données sont valides, sinon false
+    return (
+      !!this.medicamentData.nom &&
+      !!this.medicamentData.dosage &&
+      !!this.medicamentData.frequence &&
+      !!this.medicamentData.prochaine_prise &&
+      !!this.medicamentData.description
+    );
+  }
+
+    private resetMedicamentData() {
+      // Réinitialisez le modèle de données du formulaire après la soumission
+      this.medicamentData = {};
+    }
+  }
 
 
-  
-}
+
+
