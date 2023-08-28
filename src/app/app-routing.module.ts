@@ -29,7 +29,7 @@ const routes: Routes = [
     component : AjouterRappelComponent
    },
    {
-    path : 'detail' ,
+    path : 'detail/:id' ,
     component : DetailComponent
    },
 ];

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import Medicament from './models/medicament.model';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'SuiviMedicamentsApp';
+  // nouveauMedicament: Medicament = new Medicament(0, "", "", 0, "", "");
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import Medicament from '../models/medicament.model';
+import * as fs from 'fs-extra';
 
 import { MedicamentServiceService } from '../medicament-service.service';
 
@@ -35,7 +36,7 @@ export class AjouteMedicamentComponent {
 
   selectFiles(event: any) { // Changez "event:any" en "event: any"
     if (event.target.files) {
-      var reader = new FileReader();
+      const reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]);
       reader.onload = (event: any) => {
         this.urllink = event.target.result;
@@ -49,21 +50,15 @@ export class AjouteMedicamentComponent {
     const input = event.target as HTMLInputElement;
     this.selectedFile = input.files?.[0]
   }
-  
+
   nouveauMedicament : Medicament = new Medicament(0, '', '', 0, '', '');
   // injection de dependence
   constructor(public medicamentServiceService: MedicamentServiceService) {}
 
   submitForm() {
     console.log('Nouveau medicament :', this.nouveauMedicament);
-    // this.medicaments.push(this.nouveauMedicament);
     this.medicamentServiceService.addMedicament(this.nouveauMedicament);
+    console.log(this.medicamentServiceService.getMedicament());
     this.nouveauMedicament = new Medicament(0, '', '', 0, '', '')
   }
-
-
-  
-
-
-  
 }
