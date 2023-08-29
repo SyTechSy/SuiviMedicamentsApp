@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AddMedicament } from './addMedicament';
-import { NgForm } from '@angular/forms';
-import { MedicamentServiceService } from '../medicament-service.service';
+import { Imedicament } from '../models/Imedicament';
+import { IgroupeDosage } from '../models/IgroupeDosage';
+import { IgroupeFrequence } from '../models/IgroupeFrequence';
+import { MedicamentService } from '../mon-service/medicament.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ajoute-medicament',
@@ -9,6 +11,41 @@ import { MedicamentServiceService } from '../medicament-service.service';
   styleUrls: ['./ajoute-medicament.component.css']
 })
 export class AjouteMedicamentComponent implements OnInit{
+  public loading : boolean = false;
+  public medicament : Imedicament = {} as Imedicament;
+  public errorMessage : string | null = null;
+  public dosagees: IgroupeDosage[] = [] as IgroupeDosage[];
+  public frequences: IgroupeFrequence[] = [] as IgroupeFrequence[];
+
+  constructor(private medicamentService : MedicamentService,
+              private router : Router) {
+     
+  } 
+
+  ngOnInit(): void {
+    this.medicamentService.getAllGroupeDosage().subscribe((data) => {
+      this.dosagees = data;
+      // this.frequences = data;
+    }, (error) => {
+      this.errorMessage = error;
+    })
+
+    this.medicamentService.getAllGroupeFrequence().subscribe((frequenceData) => {
+    this.frequences = frequenceData;
+    }, (frequenceError) => {
+      this.errorMessage = frequenceError;
+    });
+  }
+
+  public createSubmit() {
+    this.medicamentService.createMedicament(this.medicament).subscribe( (data) => {
+      this.router.navigate( ['/'] ).then();
+    }, (error) => {
+      this.errorMessage = error;
+      this.router.navigate( [`/medicaments/add`] ).then();
+    });
+  }
+
 
 
   // =========================== Pour les champs 1 ou comprimer +++++++++++++++++++++
@@ -23,6 +60,7 @@ export class AjouteMedicamentComponent implements OnInit{
 
   onSelectChanges(event: any) {
     this.selectedValues = event.target.value;
+    // console.log(this.selectedValues)
   }
 
   onSelectChange(event: any) {
@@ -56,56 +94,6 @@ export class AjouteMedicamentComponent implements OnInit{
   }
 
 
-  // =========================== CRUD POUR AJOUTER UN MEDI +++++++++++++++++++++
-
-   public addMedicament : AddMedicament = new AddMedicament;
-
-   ngOnInit(): void {
-    //throw new Error('Method not implemented.');
-  }
-
-  public saveData(ajouteForm: NgForm) {
-    console.log(ajouteForm.form);
-    // stringify pour convertir et transferer le fichier
-    console.log('valeurs: ', JSON.stringify(ajouteForm.value))
-    console.log("hello");
-  }
 
 
-  // ================= Appel apour stocker les donneee du formulaire ============
-
-  medicamentData: any = {} // Vous devez définir votre modèle de données ici
-
-  constructor(private medicamentServiceService: MedicamentServiceService) {}
-
-  onSubmit() {
-    // Soumettez le formulaire, effectuez les validations nécessaires
-    // Si les données sont valides, stockez-les dans le service
-    if (this.validateMedicamentData()) {
-      this.medicamentServiceService.setMedicamentData(this.medicamentData);
-      this.resetMedicamentData();
-      console.log('Données du formulaire stockées avec succès dans le service.');
-    }
-  }
-    
-  private validateMedicamentData(): boolean {
-    // Implémentez ici votre logique de validation
-    // Retournez true si les données sont valides, sinon false
-    return (
-      !!this.medicamentData.nom &&
-      !!this.medicamentData.dosage &&
-      !!this.medicamentData.frequence &&
-      !!this.medicamentData.prochaine_prise &&
-      !!this.medicamentData.description
-    );
-  }
-
-    private resetMedicamentData() {
-      // Réinitialisez le modèle de données du formulaire après la soumission
-      this.medicamentData = {};
-    }
-  }
-
-
-
-
+}

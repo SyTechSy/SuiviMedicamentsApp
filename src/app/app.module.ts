@@ -8,10 +8,12 @@ import { ModifierMedicamentComponent } from './modifier-medicament/modifier-medi
 import { AjouterRappelComponent } from './ajouter-rappel/ajouter-rappel.component';
 import { DetailComponent } from './detail/detail.component';
 import { ListeMedicamentsComponent } from './liste-medicaments/liste-medicaments.component';
-import {NgOptimizedImage} from "@angular/common";
+import { NgOptimizedImage } from "@angular/common";
 import { FormsModule } from '@angular/forms';
 import { MedicamentServiceService } from './medicament-service.service'; // Importez le service
-import { ListeMedicamentsModule } from './liste-medicaments/liste-medicaments.module';
+// import { ListeMedicamentsModule } from './liste-medicaments/liste-medicaments.module';
+import { HttpClientModule } from "@angular/common/http";
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 @NgModule({
@@ -23,13 +25,15 @@ import { ListeMedicamentsModule } from './liste-medicaments/liste-medicaments.mo
     ModifierMedicamentComponent,
     AjouterRappelComponent,
     DetailComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgOptimizedImage,
     FormsModule,
-    ListeMedicamentsModule,
+    
+    HttpClientModule,
   ],
   providers: [MedicamentServiceService], // Ajoutez le service aux providers
   bootstrap: [AppComponent]

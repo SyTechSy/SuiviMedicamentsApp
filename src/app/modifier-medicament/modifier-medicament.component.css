@@ -33,11 +33,24 @@
     margin: 10px 0;
     transition: all 0.5s;
     font-size: 18px;
-} 
+}
+
+.input01 select{
+    width: 100%;
+    min-width: 360px;
+    padding: 17px 10px;
+    outline: none;
+    background-color: #D9D9D9;
+    border: 2px solid rgba(212, 212, 212, 0.855);
+    border-radius: 10px;
+    margin: 10px 0;
+    transition: all 0.5s;
+    font-size: 18px;
+}
 
 .input_description{
     width: 100%;
-    min-width: 690px;
+    min-width: 710px;
     padding: 17px 10px;
     outline: none;
     background-color: #D9D9D9;

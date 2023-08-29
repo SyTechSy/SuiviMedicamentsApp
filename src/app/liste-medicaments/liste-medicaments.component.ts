@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MedicamentServiceService } from '../medicament-service.service';
+import { Imedicament } from '../models/Imedicament';
+import { MedicamentService } from '../mon-service/medicament.service';
 
 @Component({
   selector: 'app-liste-medicaments',
@@ -8,12 +9,25 @@ import { MedicamentServiceService } from '../medicament-service.service';
 })
 export class ListeMedicamentsComponent implements OnInit {
 
-  medicaments: any[] = []; // Utilisez un tableau pour stocker plusieurs médicaments
+  public loading:boolean = false;
+  public medicaments: Imedicament[] = [];
+  public errorMessage: string | null  = null;
 
-  constructor(private medicamentServiceService: MedicamentServiceService) {}
 
-  ngOnInit() {
-    // Récupérez les données du service lors de l'initialisation du composant
-    this.medicaments = this.medicamentServiceService.getMedicamentData();
+
+  constructor( private medicamentService: MedicamentService) {}
+
+
+  ngOnInit(): void {
+    this.loading = true;
+    this.medicamentService.getAllMedicaments().subscribe((data: Imedicament[]) => {
+      this.medicaments = data;
+      this.loading = false;
+    }, (error: string | null) => {
+      this.errorMessage = error;
+      this.loading = false;
+    });
   }
+
+
 }

@@ -8,30 +8,22 @@ import {ListeMedicamentsComponent} from "./liste-medicaments/liste-medicaments.c
 
 
 const routes: Routes = [
-  {
-    path : '' ,
-    component : ListeMedicamentsComponent
-  },
-  {
-    path : 'accueil' ,
-    component : ListeMedicamentsComponent
-  },
-  {
-    path : 'ajouter' ,
-    component : AjouteMedicamentComponent
-  },
-  {
-    path : 'modifier' ,
-    component : ModifierMedicamentComponent
-   },
-   {
-    path : 'rappel' ,
-    component : AjouterRappelComponent
-   },
-   {
-    path : 'detail' ,
-    component : DetailComponent
-   },
+  { path : '' ,redirectTo : '/medicaments/user', pathMatch: 'full' },
+
+  { path : 'medicaments/user', component : ListeMedicamentsComponent },
+
+  { path : 'medicaments/add', component : AjouteMedicamentComponent },
+
+  { path : 'medicaments/edit/:medicamentID', component : ModifierMedicamentComponent },
+
+  { path : 'medicaments/rapel', component : AjouterRappelComponent },
+
+  { path : 'medicaments/detail/:medicamentID', component : DetailComponent },
+
+  // { path : '**', component : PageNot },
+
+   
+  
 ];
 
 @NgModule({
