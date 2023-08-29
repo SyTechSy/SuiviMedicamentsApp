@@ -5,6 +5,7 @@ import { ModifierMedicamentComponent } from './modifier-medicament/modifier-medi
 import { AjouterRappelComponent } from './ajouter-rappel/ajouter-rappel.component';
 import { DetailComponent } from './detail/detail.component';
 import {ListeMedicamentsComponent} from "./liste-medicaments/liste-medicaments.component";
+import {FooterComponent} from "./footer/footer.component";
 
 
 const routes: Routes = [
@@ -25,11 +26,15 @@ const routes: Routes = [
     component : ModifierMedicamentComponent
    },
    {
-    path : 'rappel' ,
+    path : 'rappel/:id',
     component : AjouterRappelComponent
    },
+  {
+    path : 'footer',
+    component : FooterComponent
+  },
    {
-    path : 'detail/:id' ,
+    path : 'detail/:id',
     component : DetailComponent
    },
 ];

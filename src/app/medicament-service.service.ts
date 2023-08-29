@@ -19,6 +19,6 @@ export class MedicamentServiceService {
 
   getMedicament() {
     const data = sessionStorage.getItem('medicaments');
-    return JSON.parse(data || '{}');
+    return JSON.parse(data || '[]');
   }
 }

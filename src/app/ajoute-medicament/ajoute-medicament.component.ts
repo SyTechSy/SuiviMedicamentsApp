@@ -51,12 +51,15 @@ export class AjouteMedicamentComponent {
     this.selectedFile = input.files?.[0]
   }
 
-  nouveauMedicament : Medicament = new Medicament(0, '', '', 0, '', '');
+  nouveauMedicament : Medicament = new Medicament(this.getMedicamentLength(), '', '', 0, '', '');
   // injection de dependence
   constructor(public medicamentServiceService: MedicamentServiceService) {}
-
+  getMedicamentLength(): number {
+    const medicamentArray = this.medicamentServiceService.getMedicament() || [];
+    return medicamentArray.length + 1;
+  }
   submitForm() {
-    console.log('Nouveau medicament :', this.nouveauMedicament);
+    // console.log('Nouveau medicament :', this.nouveauMedicament);
     this.medicamentServiceService.addMedicament(this.nouveauMedicament);
     console.log(this.medicamentServiceService.getMedicament());
     this.nouveauMedicament = new Medicament(0, '', '', 0, '', '')

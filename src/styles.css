@@ -14,3 +14,8 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.ul_navigation_container {
+  width: 100%;
+  margin: 0;
+}
+

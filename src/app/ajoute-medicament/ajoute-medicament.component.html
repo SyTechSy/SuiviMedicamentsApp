@@ -16,7 +16,7 @@
                 <input type="text" name="nom" [(ngModel)]="nouveauMedicament.nom" class="input_focus" id="liaison_input_label" placeholder="Saisie le nom de votre médicament" required >
                 <label for="liaison_input_label" class="label">Nom du médicament</label>
             </div>
-    
+
             <!-- Le champs qui s'occupera de dosage du médicament -->
             <div class="input">
                 <input type="text" name="dosage" [(ngModel)]="nouveauMedicament.dosage" class="input_focus" id="select_input" [value]="selectedValues + ' ' + selectedcomprime" >
@@ -32,7 +32,7 @@
                     </select>
                 </div>
             </div>
-    
+
             <!-- Le champs qui s'occupera de Fréquence du médicament -->
             <div class="input">
                 <input type="text" name="frequence" [(ngModel)]="nouveauMedicament.frequence" class="input_focus" id="select_input" [value]="selectedValue + ' fois / jour'">
@@ -42,13 +42,13 @@
                     <option value="3">3</option>
                 </select>
             </div>
-            
+
             <!-- Le champs qui s'occupera de prochaine prise -->
             <div class="input">
                 <input type="text" name="prochaine_price" [(ngModel)]="nouveauMedicament.prochaine_prise" class="input_focus" id="liaison_input_label" placeholder="Saisie le prochaine prise" required >
                 <label for="liaison_input_label" class="label">Prochaine prise</label>
             </div>
-    
+
         </div>
 
         <!-- Image qui sera a droit de notre formulaire -->
@@ -75,9 +75,9 @@
 
     <!-- Bouton de validation -->
     <div class="btn_validation">
-        
+
         <button type="submit" (click)="submitForm()">AJOUTER</button>
     </div>
 
-    
+
 </form>

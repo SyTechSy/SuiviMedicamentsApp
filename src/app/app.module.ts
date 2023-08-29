@@ -10,6 +10,7 @@ import { DetailComponent } from './detail/detail.component';
 import { ListeMedicamentsComponent } from './liste-medicaments/liste-medicaments.component';
 import {NgOptimizedImage} from "@angular/common";
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     ModifierMedicamentComponent,
     AjouterRappelComponent,
     DetailComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
