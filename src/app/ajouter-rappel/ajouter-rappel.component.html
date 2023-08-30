@@ -1,5 +1,5 @@
 <!-- Mon formulaire en question -->
-<form class="formulaire">
+<form class="formulaire" (submit)="createSubmit()">
 
     <!-- Le titre de formulaire -->
     <div class="title_formulaire">
@@ -25,7 +25,7 @@
 
             <!-- Le champs qui s'occupera de Heure de signal -->
             <div class="input">
-                <input type="time" class="input_focus" id="liaison_input_label" placeholder="Saisie Votre heure de signal" required >
+                <input type="time" class="input_focus" id="liaison_input_label" name="time" [(ngModel)]="nouveauRappel.heure_de_signale" placeholder="Saisie Votre heure de signal" required >
                 <label for="liaison_input_label" class="label">Heure de signal</label>
             </div>
 

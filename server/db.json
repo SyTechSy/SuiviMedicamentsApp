@@ -5,7 +5,7 @@
       "nom": "DOLIPRANE",
       "dosageId": "2",
       "frequenceId": "1",
-      "prochaine_prise": "17h 30",
+      "prochaine_prise": "18:00",
       "description": "Pour la douleur"
     },
     {
@@ -13,14 +13,14 @@
       "nom": "PARACETAMOL",
       "dosageId": "2",
       "frequenceId": "2",
-      "prochaine_prise": "19h 30",
+      "prochaine_prise": "20:40",
       "description": "Pour tout les douleur"
     },
     {
       "nom": "diakaridia",
       "dosageId": "1",
       "frequenceId": "1",
-      "prochaine_prise": "17 h 00",
+      "prochaine_prise": "21:42",
       "description": "diakaridia",
       "id": 3
     },

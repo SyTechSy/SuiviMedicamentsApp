@@ -50,7 +50,7 @@
       </div> -->
 
       <div class="input01">
-        <select placeholder="okokokok" name="dosageId" *ngIf="dosagees.length > 0"
+        <select placeholder="dosage" name="dosageId" *ngIf="dosagees.length > 0"
                 [(ngModel)]="medicament.dosageId">
           <option [value]="dosag.id" *ngFor="let dosag of dosagees"> {{dosag.nom}} </option>
         </select>
