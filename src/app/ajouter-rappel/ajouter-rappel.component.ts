@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import {Rappel} from "../models/rappel.model";
+import { Rappel } from "../models/rappel.model";
 import { ActivatedRoute } from '@angular/router';
-import {RappelServiceService} from "../rappel-service.service";
-import {MedicamentServiceService} from "../medicament-service.service";
+import { RappelServiceService } from "../rappel-service.service";
+import { MedicamentService } from "../mon-service/medicament.service";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-ajouter-rappel',
@@ -13,11 +14,12 @@ export class AjouterRappelComponent {
   constructor (
     public rappelservice: RappelServiceService,
     private route: ActivatedRoute,
-    public medicamentServiceService: MedicamentServiceService
+    private medicamentService: MedicamentService,
+    private httpClient: HttpClient
   ) {}
   id = this.route.snapshot.params['id'];
 
-  medicament = this.medicamentServiceService.getMedicament().find((medicament: { id: any; }) => medicament.id === this.id);
+  medicament = this.medicamentService.getMedicament(this.id);
 
 
 
@@ -26,5 +28,5 @@ export class AjouterRappelComponent {
     const rappelArray = this.rappelservice.getRappel() || [];
     return rappelArray.length + 1;
   }
-  nouveauRappel : Rappel = new Rappel(this.getRappelLength(), new Date(), new Date(), this.medicament, new  Date());
+  nouveauRappel : Rappel = new Rappel(this.getRappelLength(), new Date(), new Date(), this.medicament, '');
 }

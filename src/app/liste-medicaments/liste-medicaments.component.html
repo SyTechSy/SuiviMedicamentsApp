@@ -1,25 +1,23 @@
 
+<!-- Mon loading  -->
+<div *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
 
-  <!-- Mon loading  -->
-  <div *ngIf="loading">
-    <app-spinner></app-spinner>
+<!-- Error message  -->
+<div *ngIf="!loading && errorMessage">
+  <div class="error_container">
+    <p>{{errorMessage}}</p>
   </div>
-
-  <!-- Error message  -->
-  <div *ngIf="!loading && errorMessage">
-    <div class="error_container">
-      <p>{{errorMessage}}</p>
-    </div>
-  </div>
+</div>
 
 
-<div *ngIf="!loading && medicaments.length > 0" class="list-container mt-[30px] py-2.5 w-full h-full flex-col justify-center items-center bg-[#EDEDED]  ">
+<div *ngIf="!loading && medicaments.length > 0" class="list-container mt-[30px] py-2.5 w-full h-full flex-col justify-center items-center bg-[#EDEDED]">
   <div class="top w-full flex justify-around items-center mb-6">
     <button routerLink="/medicaments/add" type="submit" class="bg-[#D9D9D9] text-[#4F4F4F] font-medium py-2 px-4 rounded-[10px]">
-    <button routerLink="/ajouter" type="submit" class="bg-[#D9D9D9] text-[#4F4F4F] font-medium py-2 hover:bg-green-400 hover:text-white px-4 rounded-[10px]">
       Ajouter un Medicament
     </button>
-    <div class="flex items-center gap-1 bg-[#D9D9D9] text-[#4F4F4F] font-medium py-2 px-4 rounded-[10px] w-[40%]">
+    <div class="flex items-center gap-1 bg-[#D9D9D9] text-[#4F4F4F] font-medium py-2 px-4 rounded-[10px] max-w-[55%]">
       <i class="ri-search-line"></i>
       <input type="search" class="bg-[#D9D9D9] text-[#4F4F4F] w-[100%] h-full font-medium hover:border-1 focus:border-transparent focus:outline-none" placeholder="Chercher un médicament">
     </div>
@@ -27,21 +25,12 @@
 
   <!-- *ngif="!loading && medicaments.length > 0" -->
   <!-- Cart des medicaments -->
-  <div *ngFor="let medicament of medicaments" style="margin-top: 20px;" class="w-full flex flex-col gap-6 items-center justify-center ">
-    <div class="card-container w-3/4 bg-white px-3 py-1.5 h-[300px] rounded-[8px] relative">
-
-      <div class="flex items-center pl-[20px] mt-[10px] gap-[100px]">
-          <img src="./assets/image/medicament1.jpg" alt="" class="w-[200px] h-[270px]" height="500" width="500">
-          <div class="flex flex-col gap-4 justify-center items-center my-[40px] ">
-            <div class="flex items-center w-[270px] bg-[#D9D9D9]  ">
-              <div class="bg-amber-500 p-2"><img ngSrc="assets/image/Capsules.png" class="w-[25px] h-[25px]" alt="cap" height="235" width="235"></div>
-              <p class="text-xl ml-5"> {{medicament.nom}} </p>
-  <div class="w-full flex flex-col gap-6 items-center justify-center ">
-    <div *ngFor="let medicament of medicamentServiceService.getMedicament()" class="card-container w-3/4 bg-white px-3 py-1.5  rounded-[8px] relative">
-      <div class="sm:flex items-center h-1/2">
+  <div class="w-full flex flex-col gap-6 items-center justify-center">
+    <div *ngFor="let medicament of medicaments" style="margin-top: 20px;" class="card-container w-3/4 bg-white px-3 py-1.5 rounded-[8px] relative">
+        <div class="sm:flex items-center">
           <img ngSrc="./assets/image/medicament1.jpg" alt="" class="sm:w-[40%] w-[65%] h-[67%]" height="500" width="500">
-          <div class="flex flex-col gap-4 justify-center items-center py-[40px] w-[75%] sm:w-[40%] ">
-            <div class="flex items-center w-[100%] bg-[#D9D9D9]  ">
+          <div class="flex flex-col gap-4 justify-center items-center py-[40px] w-[75%] sm:w-[40%]">
+            <div class="flex items-center w-[100%] bg-[#D9D9D9]">
               <div class="bg-amber-500 h-[10%]  p-2"><img ngSrc="assets/image/Capsules.png" class="w-[25px] h-[25px]" alt="cap" height="235" width="235"></div>
               <p class="text-xl ml-5">{{ medicament.nom }}</p>
             </div>
@@ -53,28 +42,19 @@
               <div class="bg-amber-500 p-2"><img ngSrc="assets/image/Clock.png" class="w-[25px] h-[25px]" alt="cap" height="207" width="208"></div>
               <p class="text-xl ml-5"> {{medicament.prochaine_prise}} </p>
             </div>
+          </div>
         </div>
-      </div>
 
-      <div class="absolute top-0 right-0  mr-3 flex flex-col items-center">
-        <i routerLink="/medicaments/rapel" style="cursor: pointer;" class="ri-time-line text-[40px]"></i>
-        <p>Creer rappel</p>
-      <div routerLink="/rappel/{{medicament.id}}" class="absolute cursor-pointer hover:animate-bounce top-0 right-0  mr-3 mt-1 flex flex-col items-center">
+      <div routerLink="rappel/{{medicament.id}}" class="absolute cursor-pointer hover:animate-bounce top-0 right-0  mr-3 mt-1 flex flex-col items-center">
         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
           <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M10 6v4l3.276 3.276M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
         </svg>
         <p class="text-sm hover:text-green-500">Rappel</p>
       </div>
-      <button routerLink="/detail/{{medicament.id}}" type="submit" class="bg-[#029900] sm:w-2/12 text-white font-medium py-2 px-2 rounded-[10px] hover:bg-green-700 absolute bottom-0 right-0 mr-2 mb-2">
 
-      <button routerLink="/medicaments/detail/{{medicament.id}}" type="submit" class="bg-[#029900] w-2/12 text-white font-medium py-2 px-6 rounded-[10px] absolute bottom-0 right-0 mr-2 mb-2">
+      <button routerLink="/medicaments/detail/{{medicament.id}}" type="submit" class="bg-[#029900] sm:w-2/12 text-white font-medium py-2 px-2 rounded-[10px] hover:bg-green-700 absolute bottom-0 right-0 mr-2 mb-2">
         Details
       </button>
     </div>
-
-
   </div>
 </div>
-
-
-

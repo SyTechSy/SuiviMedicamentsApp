@@ -31,20 +31,55 @@
       "prochaine_prise": "16h 00",
       "description": "sysysysyysysys",
       "id": 4
+    },
+    {
+      "nom": "drissa",
+      "dosageId": "1",
+      "frequenceId": "2",
+      "prochaine_prise": "17 H ",
+      "id": 5
+    },
+    {
+      "nom": "drissaA",
+      "dosageId": "1",
+      "frequenceId": "1",
+      "prochaine_prise": "17 H 00",
+      "description": "ERTYUI",
+      "id": 6
+    },
+    {
+      "nom": "orgarni",
+      "dosageId": "1",
+      "frequenceId": "3",
+      "prochaine_prise": "17 H 00",
+      "description": "pour la douleur",
+      "id": 7
     }
   ],
   "dosagees": [
     {
       "id": "1",
-      "nom": "Comprimer"
+      "nom": "1 Comprimer"
     },
     {
       "id": "2",
-      "nom": "Sirop"
+      "nom": "2 Comprimer"
     },
     {
       "id": "3",
-      "nom": "Les deux"
+      "nom": "3 Comprimer"
+    },
+    {
+      "id": "4",
+      "nom": "1 Sirop"
+    },
+    {
+      "id": "5",
+      "nom": "2 Sirop"
+    },
+    {
+      "id": "6",
+      "nom": "3 Sirop"
     }
   ],
   "frequences": [
@@ -59,6 +94,10 @@
     {
       "id": "3",
       "nom": "3 / jour"
+    },
+    {
+      "id": "4",
+      "nom": "4 / jour"
     }
   ]
 }

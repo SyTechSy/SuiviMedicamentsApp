@@ -19,3 +19,11 @@ body {
   margin: 0;
 }
 
+.cancel {
+  background-color: rgba(255, 0, 0, 0.68) !important;
+}
+
+.formulaire {
+  margin-top: 1px !important;
+  height: 550px !important;
+}

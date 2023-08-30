@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
-import { Imedicament } from '../models/Imedicament';
+import Imedicament from '../models/Imedicament';
 import { IgroupeDosage } from '../models/IgroupeDosage';
 import { IgroupeFrequence } from '../models/IgroupeFrequence';
 
@@ -19,7 +19,7 @@ export class MedicamentService {
     let dataURL: string = `${this.serverURL}/medicaments`;
     return this.httpClient.get<Imedicament[]>(dataURL).pipe(catchError(this.handleError));
   }
-  
+
   // AFFICHE SINGLE MEDICAMENT DETAILLE
   public getMedicament(medicamentID: string): Observable<Imedicament> {
     let dataURL: string = `${this.serverURL}/medicaments/${medicamentID}`;
@@ -31,7 +31,7 @@ export class MedicamentService {
     let dataURL: string = `${this.serverURL}/medicaments`;
     return this.httpClient.post<Imedicament>(dataURL, medicament).pipe(catchError(this.handleError));
   }
-  
+
   // MODIFIER UN MEDICAMENT
   public updateMedicament(medicament: Imedicament, medicamentID: string):Observable<Imedicament> {
     let dataURL: string = `${this.serverURL}/medicaments/${medicamentID}`;
@@ -53,8 +53,8 @@ export class MedicamentService {
     let dataURL: string = `${this.serverURL}/dosagees`;
     return this.httpClient.get<IgroupeDosage[]>(dataURL).pipe(catchError(this.handleError));
   }
-   
-  // AFFICHE SINGLE DOSAGE 
+
+  // AFFICHE SINGLE DOSAGE
   public getDosage(medicament: Imedicament): Observable<IgroupeDosage> {
     let dataURL: string = `${this.serverURL}/dosagees/${medicament.dosageId}`;
     return this.httpClient.get<IgroupeDosage>(dataURL).pipe(catchError(this.handleError));
@@ -67,13 +67,13 @@ export class MedicamentService {
       let dataURL: string = `${this.serverURL}/frequences`;
       return this.httpClient.get<IgroupeFrequence[]>(dataURL).pipe(catchError(this.handleError));
     }
-     
-    // AFFICHE SINGLE FREQUENCE 
+
+    // AFFICHE SINGLE FREQUENCE
     public getFrequence(medicament: Imedicament): Observable<IgroupeFrequence> {
       let dataURL: string = `${this.serverURL}/frequences/${medicament.frequenceId}`;
       return this.httpClient.get<IgroupeFrequence>(dataURL).pipe(catchError(this.handleError));
     }
-  
+
 
   //ERROR HANDLING
   public handleError(error: HttpErrorResponse) {

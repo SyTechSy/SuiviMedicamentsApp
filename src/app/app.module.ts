@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AjouteMedicamentComponent } from './ajoute-medicament/ajoute-medicament.component';
@@ -10,12 +9,8 @@ import { DetailComponent } from './detail/detail.component';
 import { ListeMedicamentsComponent } from './liste-medicaments/liste-medicaments.component';
 import { NgOptimizedImage } from "@angular/common";
 import { FormsModule } from '@angular/forms';
-import { MedicamentServiceService } from './medicament-service.service'; // Importez le service
-// import { ListeMedicamentsModule } from './liste-medicaments/liste-medicaments.module';
 import { HttpClientModule } from "@angular/common/http";
 import { SpinnerComponent } from './spinner/spinner.component';
-import { FooterComponent } from './footer/footer.component';
-
 
 @NgModule({
   declarations: [
@@ -26,7 +21,6 @@ import { FooterComponent } from './footer/footer.component';
     ModifierMedicamentComponent,
     AjouterRappelComponent,
     DetailComponent,
-    FooterComponent,
     SpinnerComponent,
   ],
   imports: [
@@ -37,7 +31,6 @@ import { FooterComponent } from './footer/footer.component';
 
     HttpClientModule,
   ],
-  providers: [MedicamentServiceService], // Ajoutez le service aux providers
   bootstrap: [AppComponent]
 })
 export class AppModule { }

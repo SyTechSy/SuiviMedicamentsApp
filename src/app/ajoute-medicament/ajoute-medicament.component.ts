@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Imedicament } from '../models/Imedicament';
+import Imedicament from '../models/Imedicament';
 import { IgroupeDosage } from '../models/IgroupeDosage';
 import { IgroupeFrequence } from '../models/IgroupeFrequence';
 import { MedicamentService } from '../mon-service/medicament.service';
 import { Router } from '@angular/router';
 // import Medicament from '../models/medicament.model';
 import * as fs from 'fs-extra';
-import { MedicamentServiceService } from '../medicament-service.service';
+// import { MedicamentServiceService } from '../medicament-service.service';
 
 @Component({
   selector: 'app-ajoute-medicament',
@@ -94,19 +94,5 @@ export class AjouteMedicamentComponent implements OnInit{
   photo(event: Event) {
     const input = event.target as HTMLInputElement;
     this.selectedFile = input.files?.[0]
-  }
-
-  nouveauMedicament : Medicament = new Medicament(this.getMedicamentLength(), '', '', 0, '', '');
-  // injection de dependence
-  constructor(public medicamentServiceService: MedicamentServiceService) {}
-  getMedicamentLength(): number {
-    const medicamentArray = this.medicamentServiceService.getMedicament() || [];
-    return medicamentArray.length + 1;
-  }
-  submitForm() {
-    // console.log('Nouveau medicament :', this.nouveauMedicament);
-    this.medicamentServiceService.addMedicament(this.nouveauMedicament);
-    console.log(this.medicamentServiceService.getMedicament());
-    this.nouveauMedicament = new Medicament(0, '', '', 0, '', '')
   }
 }

@@ -1,4 +1,4 @@
-export interface Imedicament {
+export default interface Imedicament {
   id?: number;
   nom: string;
   dosageId: number;

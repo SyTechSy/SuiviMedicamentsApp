@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 import { MedicamentService } from '../mon-service/medicament.service';
-import { Imedicament } from '../models/Imedicament';
+import Imedicament from '../models/Imedicament';
 import { IgroupeDosage } from '../models/IgroupeDosage';
 import { IgroupeFrequence } from '../models/IgroupeFrequence';
 
@@ -37,7 +37,7 @@ export class DetailComponent implements OnInit{
         this.medicamentService.getDosage(data).subscribe((data) => {
           this.group = data;
         });
-        
+
         this.medicamentService.getFrequence(data).subscribe((data) => {
           this.frequency = data;
         });
@@ -49,16 +49,16 @@ export class DetailComponent implements OnInit{
   }
 
   public isNotEmpty() {
-    return Object.keys(this.medicament).length > 0 && Object.keys(this.group).length > 0 ; //  
+    return Object.keys(this.medicament).length > 0 && Object.keys(this.group).length > 0 ; //
   }
 
-  public isNotEmptys() {    
-    return Object.keys(this.medicament).length > 0 && Object.keys(this.frequency).length > 0 ; //  
+  public isNotEmptys() {
+    return Object.keys(this.medicament).length > 0 && Object.keys(this.frequency).length > 0 ; //
   }
 
 
 
-  
+
 
 
   // =============== animation de boutton supprimer =============
@@ -77,13 +77,13 @@ export class DetailComponent implements OnInit{
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire('Annulé', 'Médicament n\'a pas été modifier.)', 'error');
       }
-    }); 
+    });
   }
 
   public clickDeleteMedicament(medicamentID : string) {
     if (medicamentID) {
       this.medicamentService.deleteMedicament(medicamentID).subscribe( (data) => {
-        
+
       })
     }
   }

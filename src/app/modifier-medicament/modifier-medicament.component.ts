@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IgroupeDosage } from '../models/IgroupeDosage';
 import { IgroupeFrequence } from '../models/IgroupeFrequence';
-import { Imedicament } from '../models/Imedicament';
+import Imedicament from '../models/Imedicament';
 import { MedicamentService } from '../mon-service/medicament.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { MedicamentService } from '../mon-service/medicament.service';
   styleUrls: ['./modifier-medicament.component.css']
 })
 export class ModifierMedicamentComponent {
-  
+
   public loading : boolean = false;
   public medicamentID: string | null = null;
   public medicament : Imedicament = {} as Imedicament;
@@ -23,8 +23,8 @@ export class ModifierMedicamentComponent {
               private router : Router,
               private activatedRoute : ActivatedRoute) {
 
-     
-  } 
+
+  }
 
   ngOnInit(): void {
     this.medicamentService.getAllGroupeDosage().subscribe((data) => {
@@ -42,7 +42,7 @@ export class ModifierMedicamentComponent {
 
     // ==================================
 
-    
+
     this.loading = true;
     this.activatedRoute.paramMap.subscribe( (param) => {
       this.medicamentID = param.get('medicamentID')
@@ -76,7 +76,7 @@ export class ModifierMedicamentComponent {
 
   // =========================== Pour les champs 1 ou comprimer +++++++++++++++++++++
 
-  
+
   selectedValues = '1';
 
   selectedValue = '1';

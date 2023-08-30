@@ -34,7 +34,7 @@
     margin: 15px 0;
     transition: all 0.5s;
     font-size: 18px;
-} 
+}
 
 .input_description{
     width: 100%;
@@ -79,7 +79,7 @@
 .input_focus:not(:placeholder-shown) + .label,
 .input_focus:focus + .label {
     color: #008000;
-    top: 0px;
+    top: 0;
     left: 10px;
     transition: all 0.5s ease-in-out;
     background: linear-gradient(to top, #D9D9D9, #EDEDED)
