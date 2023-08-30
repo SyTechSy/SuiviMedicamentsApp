@@ -9,6 +9,9 @@ import { IgroupeFrequence } from '../models/IgroupeFrequence';
   providedIn: 'root'
 })
 export class MedicamentService {
+  supprimerMedicament() {
+    throw new Error('Method not implemented.');
+  }
 
   private serverURL:string = ` http://localhost:9000`; // URL de mon json server
 

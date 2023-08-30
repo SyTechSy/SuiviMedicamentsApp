@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { MedicamentService } from '../mon-service/medicament.service';
 import Imedicament from '../models/Imedicament';
@@ -12,6 +12,9 @@ import { IgroupeFrequence } from '../models/IgroupeFrequence';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit{
+
+  
+  public medicaments: Imedicament[] = [];
   public loading : boolean = false
   public medicamentID: string | null = null;
   public medicament:Imedicament = {} as Imedicament;
@@ -20,7 +23,8 @@ export class DetailComponent implements OnInit{
   public frequency: IgroupeFrequence= {} as IgroupeFrequence
 
   constructor(private activatedRoute : ActivatedRoute,
-              private medicamentService: MedicamentService) {
+              private medicamentService: MedicamentService,
+              private router : Router) {
 
   }
 
@@ -46,7 +50,58 @@ export class DetailComponent implements OnInit{
         this.loading = false;
       })
     }
+
+    this.getAllMedicamentFormServer();
   }
+
+  public getAllMedicamentFormServer() {
+    this.loading = true;
+    this.medicamentService.getAllMedicaments().subscribe((data: Imedicament[]) => {
+      this.medicaments = data;
+      this.loading = false;
+    }, (error: string | null) => {
+      this.errorMessage = error;
+      this.loading = false;
+    });
+  }
+
+  public clickDeleteMedicament(medicamentID: string | undefined) {
+    if (medicamentID) {
+      this.medicamentService.deleteMedicament(medicamentID).subscribe( (data) => {
+        // Suppression réussie, maintenant redirigez vers la page de liste des médicaments        this.getAllMedicamentFormServer
+        this.router.navigate(['/medicaments']);
+      },  (error) => {
+        this.errorMessage = error;
+      });
+    }
+  }
+  
+  // =============== animation de boutton supprimer =============
+
+  confirmBox(medicamentID: string | undefined) {
+    Swal.fire({
+      title: 'Voulez-vous vraiment supprimer?',
+      text: 'Vous ne pourrez plus le récupérer!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Oui Supprimez-le',
+      // cancelButtonText: 'Non, gardez-le',
+    }).then((result) => {
+      if (result.value) {
+        this.clickDeleteMedicament(medicamentID); // Appeler la fonction de suppression ici
+        Swal.fire('Supprimé!', 'Médicament supprimé avec succès.', 'success');
+      } 
+      // else if (result.dismiss === Swal.DismissReason.cancel) {
+        // Swal.fire('Annulé', 'Médicament n\'a pas été modifié.)', 'error');
+      // }
+    });
+  }
+  
+
+
+
+
+
 
   public isNotEmpty() {
     return Object.keys(this.medicament).length > 0 && Object.keys(this.group).length > 0 ; //
@@ -61,32 +116,6 @@ export class DetailComponent implements OnInit{
 
 
 
-  // =============== animation de boutton supprimer =============
-
-  confirmBox() {
-    Swal.fire({
-      title: 'Voulez-vous vraiment supprimer?',
-      text: 'Vous ne pourriez plus le récupérer!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Oui Supprimez-le',
-      cancelButtonText: 'Non, garde-le',
-    }).then((result) => {
-      if (result.value) {
-        Swal.fire('Supprimé!', 'Médicament supprimé avec succès.', 'success');
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire('Annulé', 'Médicament n\'a pas été modifier.)', 'error');
-      }
-    });
-  }
-
-  public clickDeleteMedicament(medicamentID : string) {
-    if (medicamentID) {
-      this.medicamentService.deleteMedicament(medicamentID).subscribe( (data) => {
-
-      })
-    }
-  }
 
 
 }

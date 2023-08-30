@@ -1,59 +1,11 @@
 {
   "medicaments": [
     {
-      "id": 1,
-      "nom": "DOLIPRANE",
-      "dosageId": "2",
-      "frequenceId": "1",
-      "prochaine_prise": "17h 30",
-      "description": "Pour la douleur"
-    },
-    {
-      "id": 2,
-      "nom": "PARACETAMOL",
-      "dosageId": "2",
-      "frequenceId": "2",
-      "prochaine_prise": "19h 30",
-      "description": "Pour tout les douleur"
-    },
-    {
       "nom": "diakaridia",
       "dosageId": "1",
-      "frequenceId": "1",
-      "prochaine_prise": "17 h 00",
-      "description": "diakaridia",
-      "id": 3
-    },
-    {
-      "nom": "ibrahim",
-      "dosageId": "1",
       "frequenceId": "2",
-      "prochaine_prise": "16h 00",
-      "description": "sysysysyysysys",
-      "id": 4
-    },
-    {
-      "nom": "drissa",
-      "dosageId": "1",
-      "frequenceId": "2",
-      "prochaine_prise": "17 H ",
-      "id": 5
-    },
-    {
-      "nom": "drissaA",
-      "dosageId": "1",
-      "frequenceId": "1",
-      "prochaine_prise": "17 H 00",
-      "description": "ERTYUI",
-      "id": 6
-    },
-    {
-      "nom": "orgarni",
-      "dosageId": "1",
-      "frequenceId": "3",
-      "prochaine_prise": "17 H 00",
-      "description": "pour la douleur",
-      "id": 7
+      "description": "c'est pour la douleur",
+      "id": 2
     }
   ],
   "dosagees": [
