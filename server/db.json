@@ -1,0 +1,64 @@
+{
+  "medicaments": [
+    {
+      "id": 1,
+      "nom": "DOLIPRANE",
+      "dosageId": "2",
+      "frequenceId": "1",
+      "prochaine_prise": "17h 30",
+      "description": "Pour la douleur"
+    },
+    {
+      "id": 2,
+      "nom": "PARACETAMOL",
+      "dosageId": "2",
+      "frequenceId": "2",
+      "prochaine_prise": "19h 30",
+      "description": "Pour tout les douleur"
+    },
+    {
+      "nom": "diakaridia",
+      "dosageId": "1",
+      "frequenceId": "1",
+      "prochaine_prise": "17 h 00",
+      "description": "diakaridia",
+      "id": 3
+    },
+    {
+      "nom": "ibrahim",
+      "dosageId": "1",
+      "frequenceId": "2",
+      "prochaine_prise": "16h 00",
+      "description": "sysysysyysysys",
+      "id": 4
+    }
+  ],
+  "dosagees": [
+    {
+      "id": "1",
+      "nom": "Comprimer"
+    },
+    {
+      "id": "2",
+      "nom": "Sirop"
+    },
+    {
+      "id": "3",
+      "nom": "Les deux"
+    }
+  ],
+  "frequences": [
+    {
+      "id": "1",
+      "nom": "1 / jour"
+    },
+    {
+      "id": "2",
+      "nom": "2 / jour"
+    },
+    {
+      "id": "3",
+      "nom": "3 / jour"
+    }
+  ]
+}

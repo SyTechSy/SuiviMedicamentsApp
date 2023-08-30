@@ -1,4 +1,18 @@
-<div class="detail_container_global">
+
+  <!-- Mon loading  -->
+  <div *ngIf="loading">
+    <app-spinner></app-spinner>
+  </div>
+
+  <!-- Error message  -->
+  <div *ngIf="!loading && errorMessage">
+    <div class="error_container">
+      <p>{{errorMessage}}</p>
+    </div>
+  </div>
+
+   
+<div class="detail_container_global" *ngIf="!loading && isNotEmpty() && isNotEmptys()">
 
     <div class="detail_container">
 
@@ -21,7 +35,7 @@
                 </div>
                 <div class="d3 dd2">
                     <p class="deux_point"> : </p>
-                    <h2 class="detail_prise">TAKADOL</h2>
+                    <h2 class="detail_prise"> {{medicament.nom}} </h2>
                 </div>
             </div>
 
@@ -39,26 +53,26 @@
             <!-- pour description de detail  -->
             <div class="detail_description">
                 <p>
-                    Le Takadol, contenant du paracétamol, est utilisé pour soulager 
-                    la douleur et réduire la fièvre, mais ne traite pas directement 
-                    une maladie sous-jacente.
+                    {{medicament.description}}
                 </p>
             </div>
 
             <!-- les boutons de suppression et modification de details  -->
 
             <div class="detail_sup_mod">
-                <button type="submit" class="detail_sup" (click)="confirmBox()"> 
+                <button type="submit" class="detail_sup" (click)="confirmBox()" (click)="clickDeleteMedicament(medicament.id)"> 
                     <i class="ri-delete-bin-line"></i> 
                     Supprimer
                 </button>
 
-                <button type="submit" class="detail_mod"> 
+                
+                <button routerLink="/medicaments/edit/{{medicament.id}}" type="submit" class="detail_mod"> 
                     <i class="ri-edit-box-line"></i> 
                     Modifier
                 </button>
             </div>
-
+            
+            
         </div>
     </div>
 
@@ -67,6 +81,8 @@
     <div class="bare_vert">
         <div class="bare_ligne"></div>
     </div>
+
+    <!-- <pre> {{ frequency | json }} </pre> -->
 
     <!-- ====================== Container des informationd de details ===================================== -->
 
@@ -83,7 +99,7 @@
                         <p class="deux_point"> : </p>
                     </div>
                     <div class="d3">
-                        <p class="detail_prise">(2) compriméés</p>
+                        <p class="detail_prise">{{ group.nom }}</p>
                     </div>
                 </div>
             </div>
@@ -96,7 +112,7 @@
                     </div>
                     <div class="d3 dd3">
                         <p class="deux_point"> : </p>
-                        <p class="detail_prise">1 / jour</p>
+                        <p class="detail_prise"> {{ frequency.nom }} </p>
                     </div>
                 </div>
             </div>  
@@ -109,7 +125,7 @@
                     </div>
                     <div class="d3 dd3">
                         <p class="deux_point"> : </p>
-                        <p class="detail_prise">17 h 00</p>
+                        <p class="detail_prise"> {{medicament.prochaine_prise}} </p>
                     </div>
                 </div>
             </div> 

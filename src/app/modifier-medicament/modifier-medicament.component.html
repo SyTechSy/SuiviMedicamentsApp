@@ -1,9 +1,11 @@
 <!-- Mon formulaire en question -->
-<form class="formulaire">
+<form class="formulaire" (submit)="submitUpdate()">
 
     <!-- Le titre de formulaire -->
     <div class="title_formulaire">
         <h2>MODIFIER UN MEDICAMENT</h2>
+        <!-- <pre> {{medicament | json}} </pre> -->
+
     </div>
 
     <!-- Le container qui va contenir notre input et image -->
@@ -13,12 +15,16 @@
 
             <!-- Le champs qui s'occupera de nom de médicament -->
             <div class="input">
-                <input type="text" class="input_focus" id="liaison_input_label" placeholder="Saisie le nom de votre médicament" required >
+                <input  [(ngModel)]="medicament.nom" 
+                    [value]="medicament.nom"
+                    name="nom" type="text" class="input_focus" 
+                    id="liaison_input_label" placeholder="Saisie le nom de votre médicament" 
+                    required="true" >
                 <label for="liaison_input_label" class="label">Nom du médicament</label>
             </div>
     
             <!-- Le champs qui s'occupera de dosage du médicament -->
-            <div class="input">
+            <!-- <div class="input">
                 <input type="text" class="input_focus" id="select_input" [value]="selectedValues + ' ' + selectedcomprime">
                 <div class="select_div">
                     <select title="Selectionner un nombre" class="select_option1" name="" id="select_input" (change)="onSelectChanges($event)">
@@ -31,21 +37,44 @@
                         <option value="Sirop">Sirop</option>
                     </select>
                 </div>
+            </div> -->
+
+            
+
+            <div class="input01">
+                <select required="true" name="dosageId" id="" *ngIf="dosagees.length > 0"
+                                [(ngModel)]="medicament.dosageId"
+                                [value]="medicament.dosageId">
+                    <option value="">votre choix medicament</option>
+                    <option [value]="dosag.id" *ngFor="let dosag of dosagees"> {{dosag.nom}} </option>
+                </select>
+            </div>
+
+            <div class="input01">
+                <select required="true" name="frequenceId" id="" *ngIf="frequences.length > 0"
+                                [(ngModel)]="medicament.frequenceId"
+                                [value]="medicament.frequenceId">
+                    <option value="">votre choix frequence</option>
+                    <option  [value]="freq.id" *ngFor="let freq of frequences"> {{freq.nom}} </option>
+                </select>
             </div>
     
             <!-- Le champs qui s'occupera de Fréquence du médicament -->
-            <div class="input">
+            <!-- <div class="input">
                 <input type="text" class="input_focus" id="select_input" [value]="selectedValue + ' fois / jour'">
                 <select name="" id="select_input" class="select_option2 option_cote" (change)="onSelectChange($event)">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </select>
-            </div>
+            </div> -->
             
             <!-- Le champs qui s'occupera de prochaine prise -->
             <div class="input">
-                <input type="text" class="input_focus" id="liaison_input_label" placeholder="Saisie le prochaine prise" required >
+                <input [(ngModel)]="medicament.prochaine_prise" 
+                    [value]="medicament.prochaine_prise"
+                    name="prochaine_prise" type="text" class="input_focus" 
+                    id="liaison_input_label" placeholder="Saisie le prochaine prise" required="true" >
                 <label for="liaison_input_label" class="label">Prochaine prise</label>
             </div>
     
@@ -68,7 +97,12 @@
     <!-- Le champs qui s'occupera de prochaine prise -->
     <div class="container_description">
         <div class="input">
-            <textarea class="input_description" name="" id="liaison_input_label" cols="30" rows="3" minlength="10" maxlength="200" placeholder="Votre description" required></textarea>
+            <textarea [(ngModel)]="medicament.description" 
+                [value]="medicament.description"
+                name="description" class="input_description" 
+                id="liaison_input_label" cols="30" rows="3" 
+                minlength="10" maxlength="200" placeholder="Votre description" 
+                required="true"></textarea>
             <label for="liaison_input_label" class="label">Prochaine prise</label>
         </div>
     </div>
@@ -78,5 +112,6 @@
         <button type="submit">MODIFIER</button>
     </div>
 
+    <!-- <pre> {{medicament | json}} </pre> -->
     
 </form>

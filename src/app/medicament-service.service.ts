@@ -1,7 +1,5 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import Medicament from './models/medicament.model';
-import {ILocalStorageService} from 'angular-local-storage';
-
 
 @Injectable({
   providedIn: 'root'

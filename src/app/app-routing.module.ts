@@ -5,10 +5,25 @@ import { ModifierMedicamentComponent } from './modifier-medicament/modifier-medi
 import { AjouterRappelComponent } from './ajouter-rappel/ajouter-rappel.component';
 import { DetailComponent } from './detail/detail.component';
 import {ListeMedicamentsComponent} from "./liste-medicaments/liste-medicaments.component";
-import {FooterComponent} from "./footer/footer.component";
 
 
 const routes: Routes = [
+  { path : '' ,redirectTo : '/medicaments/user', pathMatch: 'full' },
+
+  { path : 'medicaments/user', component : ListeMedicamentsComponent },
+
+  { path : 'medicaments/add', component : AjouteMedicamentComponent },
+
+  { path : 'medicaments/edit/:medicamentID', component : ModifierMedicamentComponent },
+
+  { path : 'medicaments/rapel', component : AjouterRappelComponent },
+
+  { path : 'medicaments/detail/:medicamentID', component : DetailComponent },
+
+  // { path : '**', component : PageNot },
+
+
+
   {
     path : '' ,
     component : ListeMedicamentsComponent

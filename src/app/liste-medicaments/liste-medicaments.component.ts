@@ -1,21 +1,33 @@
-import { Component } from '@angular/core';
-import { MedicamentServiceService } from '../medicament-service.service';
-
-// import {AjouteMedicamentComponent} from '../ajoute-medicament/ajoute-medicament.component';
+import { Component, OnInit } from '@angular/core';
+import { Imedicament } from '../models/Imedicament';
+import { MedicamentService } from '../mon-service/medicament.service';
 
 @Component({
   selector: 'app-liste-medicaments',
   templateUrl: './liste-medicaments.component.html',
   styleUrls: ['./liste-medicaments.component.css']
 })
-export class ListeMedicamentsComponent {
+export class ListeMedicamentsComponent implements OnInit {
 
-  // donne : AjouteMedicamentComponent = new AjouteMedicamentComponent;
-  // data = this.donne.medicaments;
+  public loading:boolean = false;
+  public medicaments: Imedicament[] = [];
+  public errorMessage: string | null  = null;
 
-constructor(public medicamentServiceService: MedicamentServiceService) {
-  console.log(this.medicamentServiceService.getMedicament());
 
-}
+
+  constructor( private medicamentService: MedicamentService) {}
+
+
+  ngOnInit(): void {
+    this.loading = true;
+    this.medicamentService.getAllMedicaments().subscribe((data: Imedicament[]) => {
+      this.medicaments = data;
+      this.loading = false;
+    }, (error: string | null) => {
+      this.errorMessage = error;
+      this.loading = false;
+    });
+  }
+
 
 }
