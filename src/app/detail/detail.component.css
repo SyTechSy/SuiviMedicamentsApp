@@ -3,7 +3,7 @@
 }
 
 .detail_image {
-    width: 250px;
+    width: 280px;
     height: 300px;
     flex-shrink: 0;
     border: 1px dotted #22222252;

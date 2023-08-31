@@ -1,0 +1,30 @@
+    <div class="image_input">
+      <!-- mes image -->
+      <div class="image_user">
+        <div class="roudel_img">
+          <img class="roudel" [src]="urllink" alt="img">
+        </div>
+        <input type="file" class="btn_image_user" (change) ="selectFiles($event)" (change) = "photo($event)" accept="image/*">
+      </div>
+    </div>
+
+      // Côte de mon image pour que l'utilisateur ajouter une photo
+
+  urllink: string = "assets/image/avatar1.png";
+
+  selectFiles(event: any) { // Changez "event:any" en "event: any"
+    if (event.target.files) {
+      const reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event: any) => {
+        this.urllink = event.target.result;
+      }
+    }
+  }
+
+  selectedFile : File | undefined;
+
+  photo(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.selectedFile = input.files?.[0]
+  }

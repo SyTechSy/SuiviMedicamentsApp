@@ -5,4 +5,5 @@ export default interface Imedicament {
   frequenceId: number;
   prochaine_prise: string;
   description: string;
+  photo: string;
 }

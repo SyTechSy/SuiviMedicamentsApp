@@ -11,7 +11,7 @@
 </div>
 
 <!-- Mon formulaire en question -->
-<form class="formulaire " (submit)="createSubmit()">
+<form class="formulaire " (submit)="createSubmit()" (ngSubmit)="ajouterMedicamentAvecImage()" enctype="multipart/form-data">
 
 
   <!-- Le titre de formulaire -->
@@ -84,14 +84,15 @@
 
     <!-- Image qui sera a droit de notre formulaire -->
     <div class="image_input">
-      <!-- mes image -->
+      <!-- Afficher l'image sélectionnée -->
       <div class="image_user">
         <div class="roudel_img">
-          <img class="roudel" [src]="urllink" alt="img">
+          <img [src]="selectedFileDataUrl" alt="Image sélectionnée">
         </div>
-        <input type="file" class="btn_image_user" (change) ="selectFiles($event)" (change) = "photo($event)" accept="image/*">
+        <input type="file" name="photo" [(ngModel)]="medicament.photo" (change)="handleFileInput($event)">
       </div>
     </div>
+    <!-- <button type="submit" style="color: white; background: #000; padding: 10px;">Ajouter la photo</button> -->
 
   </div>
 
