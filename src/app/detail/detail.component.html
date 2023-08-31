@@ -11,7 +11,7 @@
     </div>
   </div>
 
-
+   
 <div class="detail_container_global" *ngIf="!loading && isNotEmpty() && isNotEmptys()">
 
     <div class="detail_container">
@@ -60,19 +60,19 @@
             <!-- les boutons de suppression et modification de details  -->
 
             <div class="detail_sup_mod">
-                <button type="submit" class="detail_sup" (click)="confirmBox()">
-                    <i class="ri-delete-bin-line"></i>
+                <button type="submit" class="detail_sup" (click)="medicament && medicament.id && confirmBox(medicament.id.toString())">  <!-- (click)="clickDeleteMedicament(medicament.id)"-->
+                    <i class="ri-delete-bin-line"></i> 
                     Supprimer
                 </button>
 
-
-                <button routerLink="/medicaments/edit/{{medicament.id}}" type="submit" class="detail_mod">
-                    <i class="ri-edit-box-line"></i>
+                
+                <button routerLink="/medicaments/edit/{{medicament.id}}" type="submit" class="detail_mod"> 
+                    <i class="ri-edit-box-line"></i> 
                     Modifier
                 </button>
             </div>
-
-
+            
+            
         </div>
     </div>
 
@@ -103,7 +103,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <!-- Pour Fréquence du médicament  -->
             <div class="detail_noms_container">
                 <div class="detail_noms">
@@ -115,8 +115,8 @@
                         <p class="detail_prise"> {{ frequency.nom }} </p>
                     </div>
                 </div>
-            </div>
-
+            </div>  
+            
             <!-- Pour Prochaine Prise  -->
             <div class="detail_noms_container">
                 <div class="detail_noms">
@@ -128,7 +128,7 @@
                         <p class="detail_prise"> {{medicament.prochaine_prise}} </p>
                     </div>
                 </div>
-            </div>
+            </div> 
 
         </div>
 

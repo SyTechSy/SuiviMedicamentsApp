@@ -5,7 +5,7 @@ import { IgroupeFrequence } from '../models/IgroupeFrequence';
 import { MedicamentService } from '../mon-service/medicament.service';
 import { Router } from '@angular/router';
 // import Medicament from '../models/medicament.model';
-import * as fs from 'fs-extra';
+// import * as fs from 'fs-extra';
 // import { MedicamentServiceService } from '../medicament-service.service';
 
 @Component({
