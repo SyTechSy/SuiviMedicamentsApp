@@ -19,6 +19,11 @@ export class ModifierMedicamentComponent {
   public dosagees: IgroupeDosage[] = [] as IgroupeDosage[];
   public frequences: IgroupeFrequence[] = [] as IgroupeFrequence[];
 
+  
+  // La creation de l'image 
+  selectedFile: File | null = null;
+  selectedFileDataUrl: string | null = null;
+
   constructor(private medicamentService : MedicamentService,
               private router : Router,
               private activatedRoute : ActivatedRoute) {
@@ -77,49 +82,82 @@ export class ModifierMedicamentComponent {
   // =========================== Pour les champs 1 ou comprimer +++++++++++++++++++++
 
 
-  selectedValues = '1';
+  // selectedValues = '1';
 
-  selectedValue = '1';
+  // selectedValue = '1';
 
-  selectedcomprime = 'Comprimé';
-  private selectedFile: File | undefined;
+  // selectedcomprime = 'Comprimé';
+  // private selectedFile: File | undefined;
 
-  onSelectChanges(event: any) {
-    this.selectedValues = event.target.value;
-    // console.log(this.selectedValues)
-  }
+  // onSelectChanges(event: any) {
+  //   this.selectedValues = event.target.value;
+  //   // console.log(this.selectedValues)
+  // }
 
-  onSelectChange(event: any) {
-    this.selectedValue = event.target.value;
-  }
+  // onSelectChange(event: any) {
+  //   this.selectedValue = event.target.value;
+  // }
 
-  onSelectChangecomprime(event: any) {
-    this.selectedcomprime = event.target.value;
-  }
+  // onSelectChangecomprime(event: any) {
+  //   this.selectedcomprime = event.target.value;
+  // }
 
 
   // Côte de mon image pour que l'utilisateur ajouter une photo
 
-  urllink: string = "assets/image/avatar1.png";
+  // urllink: string = "assets/image/avatar1.png";
 
-  selectFiles(event: any) { // Changez "event:any" en "event: any"
-    if (event.target.files) {
-      var reader = new FileReader();
-      reader.readAsDataURL(event.target.files[0]);
-      reader.onload = (event: any) => {
-        this.urllink = event.target.result;
-      }
-    }
-  }
+  // selectFiles(event: any) { // Changez "event:any" en "event: any"
+  //   if (event.target.files) {
+  //     var reader = new FileReader();
+  //     reader.readAsDataURL(event.target.files[0]);
+  //     reader.onload = (event: any) => {
+  //       this.urllink = event.target.result;
+  //     }
+  //   }
+  // }
 
   //selectedFile : File | undefined;
 
-  photo(event: Event) {
-    const input = event.target as HTMLInputElement;
-    this.selectedFile = input.files?.[0]
+  // photo(event: Event) {
+  //   const input = event.target as HTMLInputElement;
+  //   this.selectedFile = input.files?.[0]
+  // }
+
+
+
+  handleFileInput(event: any) {
+    this.selectedFile = event.target.files[0];
+
+    // Afficher l'image instantanément
+    if (this.selectedFile) {
+      const reader = new FileReader();
+      reader.readAsDataURL(this.selectedFile);
+
+      reader.onload = () => {
+        this.selectedFileDataUrl = reader.result as string
+        this.medicament.photo = reader.result as string; // Stockez les données d'image
+      };
+    }
   }
 
-
+  ajouterMedicamentAvecImage() {
+    if (this.medicament && this.medicament.photo) {
+      // Appelez le service pour ajouter le médicament avec image
+      this.medicamentService.ajouterMedicamentAvecImage(this.medicament).subscribe(
+        (response) => {
+          // Traitez la réponse du serveur, qui peut inclure des informations sur le médicament ajouté
+          console.log('Réponse du serveur :', response);
+        },
+        (error) => {
+          // Gérez les erreurs en cas d'échec de l'ajout du médicament
+          console.error('Erreur lors de l\'ajout du médicament :', error);
+        }
+      );
+    } else {
+      console.error('Veuillez sélectionner un fichier image.');
+    }
+  }
 
 
 }

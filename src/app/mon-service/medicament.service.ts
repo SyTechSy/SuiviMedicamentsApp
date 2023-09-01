@@ -9,9 +9,6 @@ import { IgroupeFrequence } from '../models/IgroupeFrequence';
   providedIn: 'root'
 })
 export class MedicamentService {
-  supprimerMedicament() {
-    throw new Error('Method not implemented.');
-  }
 
   private serverURL:string = ` http://localhost:9000`; // URL de mon json server
 
@@ -90,4 +87,10 @@ export class MedicamentService {
     }
     return throwError(errorMessage);
   }
+
+  ajouterMedicamentAvecImage(medicament: any): Observable<any> {
+    // Enregistrez le médicament sur le serveur JSON
+    return this.httpClient.post(`${this.serverURL}`, medicament);
+  }
+  
 }

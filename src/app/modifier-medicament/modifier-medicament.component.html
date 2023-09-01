@@ -79,9 +79,9 @@
             <!-- mes image -->
             <div class="image_user">
                 <div class="roudel_img">
-                    <img class="roudel" [src]="urllink">
+                    <img  [src]="medicament.photo" alt="Image sélectionnée" class="roudel">
                 </div>
-                <input type="file" class="btn_image_user" (change) ="selectFiles($event)">
+                <input type="file" class="btn_image_user" (change) ="handleFileInput($event)">
             </div>
         </div>
 
