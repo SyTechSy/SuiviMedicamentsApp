@@ -5,7 +5,6 @@ import { ModifierMedicamentComponent } from './modifier-medicament/modifier-medi
 import { AjouterRappelComponent } from './ajouter-rappel/ajouter-rappel.component';
 import { DetailComponent } from './detail/detail.component';
 import {ListeMedicamentsComponent} from "./liste-medicaments/liste-medicaments.component";
-import {FooterComponent} from "./footer/footer.component";
 
 
 const routes: Routes = [
@@ -20,11 +19,6 @@ const routes: Routes = [
   { path : 'medicaments/rappel/:id', component : AjouterRappelComponent },
 
   { path : 'medicaments/detail/:medicamentID', component : DetailComponent },
-  {
-    path : 'footer',
-    component : FooterComponent
-  },
-
 ];
 
 @NgModule({

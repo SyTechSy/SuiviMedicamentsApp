@@ -1,0 +1,20 @@
+.footer_container {
+    /* position: absolute; */
+    /* bottom: 0; */
+    height: 80px;
+    background-color: #504B4B;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 
+.footer_conatiner .footer_img {
+    align-items: center;
+    justify-content: center;
+} */
+
+/* right-0 left-0 w-full bg-[#504B4B] h-[80px] flex gap-4  items-center justify-center */

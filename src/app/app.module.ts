@@ -11,6 +11,8 @@ import { NgOptimizedImage } from "@angular/common";
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { SpinnerComponent } from './spinner/spinner.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +24,14 @@ import { SpinnerComponent } from './spinner/spinner.component';
     AjouterRappelComponent,
     DetailComponent,
     SpinnerComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgOptimizedImage,
     FormsModule,
-
+    ReactiveFormsModule,
     HttpClientModule,
   ],
   bootstrap: [AppComponent]

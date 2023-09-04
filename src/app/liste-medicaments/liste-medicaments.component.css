@@ -25,3 +25,17 @@
     top: 70px;
     z-index: 99999999999999999999999999999999999999;
 }
+
+.btn_anime {
+    transition: all 0.1s ease-in-out;
+    background-color: green;
+    color: #fff;
+    padding: 10px 20px;
+    letter-spacing: 1px;
+}
+
+.btn_anime:hover {
+    background-color: rgb(45, 165, 45);
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+}

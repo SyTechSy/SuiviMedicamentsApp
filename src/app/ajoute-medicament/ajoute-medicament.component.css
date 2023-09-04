@@ -1,7 +1,7 @@
 .formulaire {
     margin: 5% 0;
     width: 100%;
-    height: 95vh;
+    height: 98vh;
     background-color: #EDEDED;
 }
 
@@ -213,9 +213,30 @@ input[type="file"]::-webkit-file-upload-button {
 
 .roudel_img {
     width: 200px;
-    height: 200px;
-    margin-left: 23px;
+    height: 230px;
+    margin-left: 40px;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
+
+.immmmmgggg {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #eee;
+    background-image: url('../../assets/image/medi2.jpeg');
+    background-position: center;
+    background-size: cover;
+    border-radius: 5px;
+    box-shadow: rgba(102, 111, 100, 0.2) 0px 7px 29px 0px;
+}
+
+.immmmmgggg[alt="Ajouter votre medicament"] {
+    color: green;
+    font-weight: 500; 
+    font-size: 14px;
+    text-align: center;
+}
+
 
 img.roudel{
     width: 100%;

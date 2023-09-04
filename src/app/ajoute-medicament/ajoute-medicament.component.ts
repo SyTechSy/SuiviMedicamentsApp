@@ -26,6 +26,8 @@ export class AjouteMedicamentComponent implements OnInit{
   selectedFile: File | null = null;
   selectedFileDataUrl: string | null = null;
 
+  
+
   constructor(private medicamentService : MedicamentService,
               private router : Router,
               private http: HttpClient) {

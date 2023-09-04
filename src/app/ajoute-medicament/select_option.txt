@@ -18,3 +18,45 @@
   onSelectChangecomprime(event: any) {
     this.selectedcomprime = event.target.value;
   }
+
+htmlmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+
+
+      <!-- Le champs qui s'occupera de dosage du médicament -->
+      <!-- <div class="input">
+          <input [(ngModel)]="medicament.dosageId" type="text" name="dosageId" class="input_focus" id="select_input" [value]="selectedValues + ' ' + selectedcomprime" >
+          <div class="select_div">
+              <select *ngIf="dosagees.length > 0" title="Selectionner un nombre" class="select_option1" name="dosageId" id="select_input" (change)="onSelectChanges($event)">
+
+                  <option  [value]="dosag.id" *ngFor="let dosag of dosagees"> {{dosag.nom}} </option>
+
+              </select>
+              <select *ngIf="dosagees.length > 0" id="select_input" class="select_option2" (change)="onSelectChangecomprime($event)">
+
+                  <option [value]=" ' / ' + dosag.id"  *ngFor="let dosag of dosagees"> {{dosag.name}} </option>
+
+
+              </select>
+          </div>
+      </div> -->
+
+valuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
+
+
+      <!-- Le champs qui s'occupera de Fréquence du médicament -->
+      <!-- <div class="input">
+          <input [(ngModel)]="medicament.frequenceId" type="text" name="frequenceId" class="input_focus" id="select_input" [value]="selectedValue + ' fois / jour'">
+          <select  *ngIf="frequences.length > 0" id="select_input" class="select_option2 option_cote" (change)="onSelectChange($event)">
+
+              <option *ngFor="let freq of frequences" [value]="freq.id"> {{freq.nom}} </option>
+
+          </select>
+      </div> -->
+
+      <!-- Le champs qui s'occupera de prochaine prise -->
+      <!--<div class="input">
+        <input [(ngModel)]="medicament.prochaine_prise" type="text" name="prochaine_prise" class="input_focus" id="liaison_input_label2" placeholder="Saisie le prochaine prise" required >
+        <label for="liaison_input_label2" class="label">Prochaine prise</label>
+      </div>-->
+
+====================================================================

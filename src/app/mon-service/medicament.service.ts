@@ -92,5 +92,6 @@ export class MedicamentService {
     // Enregistrez le médicament sur le serveur JSON
     return this.httpClient.post(`${this.serverURL}`, medicament);
   }
-  
+
+
 }

@@ -15,9 +15,10 @@ body {
     width: 100%;
 }
 
-.ul_navigation_container {
+.ul_navigation_container,
+.navbar {
   width: 100%;
-  margin: 0;
+  margin: 0 !important;
 }
 
 .cancel {

@@ -15,14 +15,14 @@
 
             <!-- Le champs qui s'occupera de nom de médicament -->
             <div class="input">
-                <input  [(ngModel)]="medicament.nom" 
+                <input  [(ngModel)]="medicament.nom"
                     [value]="medicament.nom"
-                    name="nom" type="text" class="input_focus" 
-                    id="liaison_input_label" placeholder="Saisie le nom de votre médicament" 
+                    name="nom" type="text" class="input_focus"
+                    id="liaison_input_label_" placeholder="Saisie le nom de votre médicament"
                     required="true" >
-                <label for="liaison_input_label" class="label">Nom du médicament</label>
+                <label for="liaison_input_label_" class="label">Nom du médicament</label>
             </div>
-    
+
             <!-- Le champs qui s'occupera de dosage du médicament -->
             <!-- <div class="input">
                 <input type="text" class="input_focus" id="select_input" [value]="selectedValues + ' ' + selectedcomprime">
@@ -39,10 +39,10 @@
                 </div>
             </div> -->
 
-            
+
 
             <div class="input01">
-                <select required="true" name="dosageId" id="" *ngIf="dosagees.length > 0"
+                <select required="true" name="dosageId" *ngIf="dosagees.length > 0"
                                 [(ngModel)]="medicament.dosageId"
                                 [value]="medicament.dosageId">
                     <option value="">votre choix medicament</option>
@@ -51,14 +51,14 @@
             </div>
 
             <div class="input01">
-                <select required="true" name="frequenceId" id="" *ngIf="frequences.length > 0"
+                <select required="true" name="frequenceId" *ngIf="frequences.length > 0"
                                 [(ngModel)]="medicament.frequenceId"
                                 [value]="medicament.frequenceId">
                     <option value="">votre choix frequence</option>
                     <option  [value]="freq.id" *ngFor="let freq of frequences"> {{freq.nom}} </option>
                 </select>
             </div>
-    
+
             <!-- Le champs qui s'occupera de Fréquence du médicament -->
             <!-- <div class="input">
                 <input type="text" class="input_focus" id="select_input" [value]="selectedValue + ' fois / jour'">
@@ -68,16 +68,10 @@
                     <option value="3">3</option>
                 </select>
             </div> -->
-            
+
             <!-- Le champs qui s'occupera de prochaine prise -->
-            <div class="input">
-                <input [(ngModel)]="medicament.prochaine_prise" 
-                    [value]="medicament.prochaine_prise"
-                    name="prochaine_prise" type="text" class="input_focus" 
-                    id="liaison_input_label" placeholder="Saisie le prochaine prise" required="true" >
-                <label for="liaison_input_label" class="label">Prochaine prise</label>
-            </div>
-    
+
+
         </div>
 
         <!-- Image qui sera a droit de notre formulaire -->
@@ -94,14 +88,13 @@
     </div>
 
     <!-- Description -->
-    <!-- Le champs qui s'occupera de prochaine prise -->
     <div class="container_description">
         <div class="input">
-            <textarea [(ngModel)]="medicament.description" 
+            <textarea [(ngModel)]="medicament.description"
                 [value]="medicament.description"
-                name="description" class="input_description" 
-                id="liaison_input_label" cols="30" rows="3" 
-                minlength="10" maxlength="200" placeholder="Votre description" 
+                name="description" class="input_description"
+                id="liaison_input_label" cols="30" rows="3"
+                minlength="10" maxlength="200" placeholder="Votre description"
                 required="true"></textarea>
             <label for="liaison_input_label" class="label">Prochaine prise</label>
         </div>
@@ -113,5 +106,5 @@
     </div>
 
     <!-- <pre> {{medicament | json}} </pre> -->
-    
+
 </form>

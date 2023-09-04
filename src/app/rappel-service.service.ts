@@ -16,6 +16,7 @@ export class RappelServiceService {
 
   getRappel() {
     const data = sessionStorage.getItem('rappels');
+    // console.log(data);
     return JSON.parse(data || '[]');
   }
 }
