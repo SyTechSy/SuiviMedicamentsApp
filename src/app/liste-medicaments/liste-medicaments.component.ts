@@ -9,7 +9,12 @@ import {Rappel} from "../models/rappel.model";
   templateUrl: './liste-medicaments.component.html',
   styleUrls: ['./liste-medicaments.component.css']
 })
-export class ListeMedicamentsComponent implements OnInit, OnDestroy {
+export class ListeMedicamentsComponent implements OnInit {
+
+  // Pagination variables
+  public currentPage = 1; // Initial page
+  public itemsPerPage = 4; // Number of items per page
+  public searchItem = ''; // Search item
 
   public loading:boolean = false;
   public medicaments: Imedicament[] = [];
@@ -26,7 +31,7 @@ export class ListeMedicamentsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.loading = true;
     this.medicamentService.getAllMedicaments().subscribe((data: Imedicament[]) => {
-      this.medicaments = data;
+      this.medicaments = data.reverse();
       this.loading = false;
     }, (error: string | null) => {
       this.errorMessage = error;
@@ -34,11 +39,6 @@ export class ListeMedicamentsComponent implements OnInit, OnDestroy {
     });
     console.log("liste-medicaments.component.ts");
     this.startReminderInterval();
-  }
-
-  ngOnDestroy(): void {
-    // Clean up the interval when the component is destroyed
-    // this.stopReminderInterval();
   }
 
   startReminderInterval(): void {
@@ -66,5 +66,16 @@ export class ListeMedicamentsComponent implements OnInit, OnDestroy {
   triggerAlarm(): void {
     // Play the audio
     this.audio.play().then(r => console.log('Rappel de médicament'));
+  }
+
+  filterMedicaments(): Imedicament[] {
+    return this.medicaments.filter((medicament: Imedicament) => {
+      return (
+        medicament.nom.toLowerCase().includes(this.searchItem.toLowerCase())
+      );
+    });
+  }
+  public get filteredMedicaments(): Imedicament[] {
+    return this.filterMedicaments();
   }
 }

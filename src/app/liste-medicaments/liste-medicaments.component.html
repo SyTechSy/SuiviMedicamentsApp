@@ -9,11 +9,11 @@
     </button>
     <div class="flex items-center gap-1 bg-[#D9D9D9] text-[#4F4F4F] font-medium py-2 px-4 rounded-[10px] max-w-[55%]">
       <i class="ri-search-line"></i>
-      <input type="search" class="bg-[#D9D9D9] text-[#4F4F4F] w-[100%] h-full font-medium hover:border-1 focus:border-transparent focus:outline-none" placeholder="Chercher un médicament">
+      <input type="search" [(ngModel)]="searchItem" class="bg-[#D9D9D9] text-[#4F4F4F] w-[100%] h-full font-medium hover:border-1 focus:border-transparent focus:outline-none" placeholder="Chercher un médicament">
     </div>
   </div>
 
-  
+
   <!-- Mon loading  -->
   <div *ngIf="loading">
     <app-spinner></app-spinner>
@@ -32,7 +32,7 @@
     <!-- *ngif="!loading && medicaments.length > 0" -->
     <!-- Cart des medicaments -->
     <div class="w-full flex flex-col gap-6 items-center justify-center ">
-      <div *ngFor="let medicament of medicaments" style="margin-top: 20px;" class="card-container w-2/3 bg-white px-3 py-1.5 rounded-[8px] relative">
+      <div *ngFor="let medicament of filteredMedicaments | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }" style="margin-top: 20px;" class="card-container w-2/3 bg-white px-3 py-1.5 rounded-[8px] relative">
           <div class="sm:flex items-center">
             <div class="img_king">
               <img [src]="medicament.photo" alt="photo de medicament" class="image-reduite sm:w-[40%] w-[65%] h-[67%]" title="image de medicament">
@@ -64,6 +64,8 @@
           Details
         </button>
       </div>
+      <!-- Pagination Controls -->
+      <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
     </div>
   </div>
 </div>
