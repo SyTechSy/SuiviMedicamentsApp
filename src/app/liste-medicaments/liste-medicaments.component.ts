@@ -3,6 +3,8 @@ import Imedicament from '../models/Imedicament';
 import { MedicamentService } from '../mon-service/medicament.service';
 import {RappelServiceService} from "../rappel-service.service";
 import {Rappel} from "../models/rappel.model";
+import {IgroupeDosage} from "../models/IgroupeDosage";
+import {IgroupeFrequence} from "../models/IgroupeFrequence";
 
 @Component({
   selector: 'app-liste-medicaments',
@@ -15,6 +17,8 @@ export class ListeMedicamentsComponent implements OnInit {
   public currentPage = 1; // Initial page
   public itemsPerPage = 4; // Number of items per page
   public searchItem = ''; // Search item
+  // public group: IgroupeDosage = {} as IgroupeDosage
+  public frequency: IgroupeFrequence= {} as IgroupeFrequence
 
   public loading:boolean = false;
   public medicaments: Imedicament[] = [];
@@ -32,6 +36,12 @@ export class ListeMedicamentsComponent implements OnInit {
     this.loading = true;
     this.medicamentService.getAllMedicaments().subscribe((data: Imedicament[]) => {
       this.medicaments = data.reverse();
+      this.medicaments.forEach((medicament: Imedicament) => {
+        this.medicamentService.getFrequence(medicament).subscribe((medicament) => {
+          this.frequency = medicament;
+        });
+        }
+      );
       this.loading = false;
     }, (error: string | null) => {
       this.errorMessage = error;
