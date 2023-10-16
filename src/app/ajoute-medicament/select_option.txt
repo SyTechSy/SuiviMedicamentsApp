@@ -1,0 +1,20 @@
+
+  selectedValues = '1';
+
+  selectedValue = '1';
+
+  selectedcomprime = 'Comprimé';
+  private selectedFile: File | undefined;
+
+  onSelectChanges(event: any) {
+    this.selectedValues = event.target.value;
+    // console.log(this.selectedValues)
+  }
+
+  onSelectChange(event: any) {
+    this.selectedValue = event.target.value;
+  }
+
+  onSelectChangecomprime(event: any) {
+    this.selectedcomprime = event.target.value;
+  }

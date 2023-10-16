@@ -1,0 +1,44 @@
+<!-- Mon formulaire en question -->
+<form class="formulaire" [formGroup]="form" (submit)="createSubmit()">
+
+    <!-- Le titre de formulaire -->
+    <div class="title_formulaire">
+        <h2 class="font-bold text-2xl">AJOUTER UN RAPPEL</h2>
+    </div>
+
+    <!-- Le container qui va contenir notre input et image -->
+    <div class="container_global_input">
+
+        <div class="container_input_image">
+
+            <!-- Le champs qui s'occupera de Date de de debut -->
+            <div class="input">
+                <input type="date" class="input_focus" formControlName="date_debut" name="date" id="liaison_input_label1" required >
+                <label for="liaison_input_label1" class="label">Date de de debut</label>
+            </div>
+
+            <!-- Le champs qui s'occupera de Date de de fin -->
+            <div class="input">
+                <input type="date" class="input_focus" formControlName="date_fin" name="date" id="liaison_input_label2" required >
+                <label for="liaison_input_label2" class="label">Date de de fin</label>
+            </div>
+
+            <!-- Le champs qui s'occupera de Heure de signal -->
+            <div class="input">
+                <input type="time" class="input_focus" id="liaison_input_label" formControlName="heure_de_signale" name="time" placeholder="Saisie Votre heure de signal" required >
+                <label for="liaison_input_label" class="label">Heure de signal</label>
+            </div>
+        </div>
+    </div>
+
+  <div *ngIf="form.hasError('dateRangeInvalid', 'date_debut') || form.hasError('dateRangeInvalid', 'date_fin')" class="error-message">
+    <p class="text-red">Start date must be before end date.</p>
+  </div>
+
+    <!-- Bouton de validation -->
+    <div class="btn_validation">
+        <button type="submit">CONFIERMER</button>
+    </div>
+
+
+</form>

@@ -1,0 +1,137 @@
+
+  <!-- Mon loading  -->
+  <div *ngIf="loading">
+    <app-spinner></app-spinner>
+  </div>
+
+  <!-- Error message  -->
+  <div *ngIf="!loading && errorMessage">
+    <div class="error_container">
+      <p>{{errorMessage}}</p>
+    </div>
+  </div>
+
+   
+<div class="detail_container_global" *ngIf="!loading && isNotEmpty() && isNotEmptys()">
+
+    <div class="detail_container">
+
+        <!-- ================================ LEFT ================================== -->
+
+
+        <!-- Image de mon detaille  -->
+        <div class="detail_image">
+            <img [src]="medicament.photo" class="catre_image" alt="image de detaille">
+        </div>
+
+        <!-- ================================ RIGHT ================================== -->
+
+        <!-- les informations de mon detaille  -->
+        <div class="detail_information_detail">
+            <!-- Pour nom  -->
+            <div class="detail_nom">
+                <div class="d1">
+                    <h3 class="detail_name">Nom</h3>
+                </div>
+                <div class="d3 dd2">
+                    <p class="deux_point"> : </p>
+                    <h2 class="detail_prise"> {{medicament.nom}} </h2>
+                </div>
+            </div>
+
+            <!-- Pour date d'ajoute -->
+            <div class="detail_nom">
+                <div class="d1">
+                    <h3 class="detail_name">Date d’ajout</h3>
+                </div>
+                <div class="d3 dd2">
+                    <p class="deux_point"> : </p>
+                    <h2 class="detail_prise">24-08-2023</h2>
+                </div>
+            </div>
+
+            <!-- pour description de detail  -->
+            <div class="detail_description">
+                <p>
+                    {{medicament.description}}
+                </p>
+            </div>
+
+            <!-- les boutons de suppression et modification de details  -->
+
+            <div class="detail_sup_mod">
+                <button type="submit" class="detail_sup" (click)="medicament && medicament.id && confirmBox(medicament.id.toString())">  <!-- (click)="clickDeleteMedicament(medicament.id)"-->
+                    <i class="ri-delete-bin-line"></i> 
+                    Supprimer
+                </button>
+
+                
+                <button routerLink="/medicaments/edit/{{medicament.id}}" type="submit" class="detail_mod"> 
+                    <i class="ri-edit-box-line"></i> 
+                    Modifier
+                </button>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    <!-- ========================= LE PETIT BARE ======================= -->
+
+    <div class="bare_vert">
+        <div class="bare_ligne"></div>
+    </div>
+
+    <!-- <pre> {{ frequency | json }} </pre> -->
+
+    <!-- ====================== Container des informationd de details ===================================== -->
+
+    <div class="detail_info_container_global">
+
+        <div class="detail_info_container">
+            <!-- Pour dosage du medicament -->
+            <div class="detail_noms_container">
+                <div class="detail_noms">
+                    <div class="d1">
+                        <p class="detail_name">Dosage du médicament</p>
+                    </div>
+                    <div class="d2">
+                        <p class="deux_point"> : </p>
+                    </div>
+                    <div class="d3">
+                        <p class="detail_prise">{{ group.nom }}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pour Fréquence du médicament  -->
+            <div class="detail_noms_container">
+                <div class="detail_noms">
+                    <div class="d1">
+                        <p class="detail_name">Fréquence du médicament</p>
+                    </div>
+                    <div class="d3 dd3">
+                        <p class="deux_point"> : </p>
+                        <p class="detail_prise"> {{ frequency.nom }} </p>
+                    </div>
+                </div>
+            </div>  
+            
+            <!-- Pour Prochaine Prise  -->
+            <div class="detail_noms_container">
+                <div class="detail_noms">
+                    <div class="d1">
+                        <p class="detail_name">Prochaine Prise</p>
+                    </div>
+                    <div class="d3 dd3">
+                        <p class="deux_point"> : </p>
+                        <p class="detail_prise"> {{medicament.prochaine_prise}} </p>
+                    </div>
+                </div>
+            </div> 
+
+        </div>
+
+    </div>
+
+</div>

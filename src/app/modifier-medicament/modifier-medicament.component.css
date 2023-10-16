@@ -1,0 +1,227 @@
+.formulaire {
+    margin: 5% 0;
+    width: 100%;
+    height: 95vh;
+    background-color: #EDEDED;
+}
+
+.title_formulaire h2 {
+    text-align: center;
+    padding: 20px 0 0 0;
+    margin-bottom: 20px;
+}
+
+.container_global_input {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    position: relative;
+}
+
+.input_focus {
+    width: 100%;
+    min-width: 360px;
+    padding: 17px 10px;
+    outline: none;
+    background-color: #D9D9D9;
+    border: 2px solid rgba(212, 212, 212, 0.855);
+    border-radius: 10px;
+    margin: 10px 0;
+    transition: all 0.5s;
+    font-size: 18px;
+}
+
+.input01 select{
+    width: 100%;
+    min-width: 360px;
+    padding: 17px 10px;
+    outline: none;
+    background-color: #D9D9D9;
+    border: 2px solid rgba(212, 212, 212, 0.855);
+    border-radius: 10px;
+    margin: 10px 0;
+    transition: all 0.5s;
+    font-size: 18px;
+}
+
+.input_description{
+    width: 100%;
+    min-width: 710px;
+    padding: 17px 10px;
+    outline: none;
+    background-color: #D9D9D9;
+    border: 2px solid rgba(212, 212, 212, 0.855);
+    border-radius: 8px;
+    margin: 10px 0;
+    transition: all 0.5s;
+    font-size: 18px;
+    resize: none;
+}
+
+.container_input_image {
+    padding-right: 75px;
+}
+
+.container_description {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.input_focus:focus {
+    border: 2px solid #008000;
+}
+
+.input_description:focus {
+    border: 2px solid #008000;
+}
+
+.input .label {
+    position: absolute;
+    top: 26px;
+    left: 15px;
+    pointer-events: none;
+    color: #000;
+}
+
+
+/*  Verificatiion de label si le champs est vide ou pas  */
+
+.input_focus:not(:placeholder-shown) + .label,
+.input_focus:focus + .label {
+    color: #008000;
+    top: -3px;
+    left: 10px;
+    transition: all 0.5s ease-in-out;
+    background: linear-gradient(to top, #D9D9D9, #EDEDED)
+}
+
+.input_description:not(:placeholder-shown) + .label,
+.input_description:focus + .label {
+    color: #008000;
+    top: -3px;
+    left: 10px;
+    transition: all 0.5s ease-in-out;
+    background: linear-gradient(to top, #D9D9D9, #EDEDED)
+}
+
+
+
+
+.input_focus::placeholder,
+.input_description::placeholder
+ {
+    opacity: 0;
+}
+
+.input_focus:focus::placeholder,
+.input_description:focus::placeholder
+{
+    opacity: 1;
+    animation-delay: 1s;
+    font-size: 15px;
+    transition: all 0.2s ease-in-out;
+}
+
+.select_div {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 3px;
+    top: 30px;
+}
+
+.select_option1 {
+    cursor: pointer;
+    top: 30px;
+    border: none;
+    background: #ffa500;
+    color: #000;
+    margin: 0 3px;
+    border-radius: 5px;
+}
+
+.select_option2 {
+    cursor: pointer;
+    top: 30px;
+    border: none;
+    background: #008000;
+    color: #FFF;
+    /* margin: 0 3px; */
+    border-radius: 5px;
+}
+
+.option_cote {
+    position: absolute;
+    right: 10px;
+    top: 30px;
+}
+
+.image_medicament_div img  {
+    width: 100px;
+    height: 100px;
+    background-color: #522828;
+}
+
+.btn_validation {
+    text-align: center;
+    margin: 10px 0;
+}
+
+
+.btn_validation  button{
+    padding: 12px 40px;
+    background-color: #008000;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 #22222262;
+    border: none;
+}
+
+.image_user {
+    display: flex;
+    flex-direction: column;
+    display: inline-block;
+    position: relative;
+}
+
+.btn_image_user{
+    margin-top: 20px;
+}
+
+.image_user input[type="file"] {
+    font-size: 12px;
+    cursor: pointer;
+    background-color: #008000;
+    padding: 10px;
+    color: #fff;
+  }
+
+input[type="file"]::-webkit-file-upload-button {
+    color: #000; 
+    background-color: #ffa500;
+    border: none;
+}
+
+.roudel_img {
+    width: 200px;
+    height: 200px;
+    margin-left: 23px;
+    /* box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px; */
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    padding: 30px;
+    border-radius: 50%;
+}
+
+img.roudel{
+    width: 100%;
+    height: 100%;
+}
